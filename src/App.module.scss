@@ -1,0 +1,18 @@
+@import './styles/custom-properties.scss';
+@import './styles/stylesheet.scss';
+// @font-face {
+//   font-family: 'cooper_hewittbook';
+//   src: url('./fonts/cooperhewitt-book-webfont.woff2') format('woff2'),
+//     url('./fonts/cooperhewitt-book-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+html,
+body {
+  font-family: cooper_hewittbook;
+  // font-family: Arial, Helvetica, sans-serif;
+}
+.App {
+  min-height: 100vh;
+  min-width: 100vw;
+}

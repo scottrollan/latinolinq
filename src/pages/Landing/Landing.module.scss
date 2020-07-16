@@ -1,0 +1,14 @@
+@import '../../styles/custom-properties.scss';
+
+.landing {
+  background: url('../../assets/01.jpg') no-repeat fixed center;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.languageButton {
+  @include lightButton;
+}
