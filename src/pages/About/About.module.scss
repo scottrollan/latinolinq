@@ -1,28 +1,51 @@
 .about {
-  padding: var(--nav-height) 3rem var(--footer-height);
+  padding: var(--nav-height) 0 var(--footer-height);
+  display: flex;
+  flex-direction: column;
+}
+.translate {
+  align-self: flex-end;
+  margin: 2rem 3rem;
 }
 .section1 {
   position: relative;
   width: 100%;
   height: auto;
+  padding-top: 3rem;
+}
+
+.blurb {
+  position: relative;
+  background-color: var(--lightest-gray);
+  width: 45%;
+  margin: 3rem 2rem;
+  padding: 4rem;
+  z-index: 1;
 }
 .mainPic {
   width: 70%;
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 0;
 }
-.inset {
-  z-index: 2;
-  padding: 3rem 0;
-}
-.insetBlurb {
-  position: absolute;
-  left: 0;
-  top: 15;
+.section2 {
   background-color: var(--lightest-gray);
-  width: 45%;
-  padding: 3rem 2rem;
-  z-index: 2;
+  text-align: 'center';
+  padding: 2rem 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section3 {
+  margin: 3rem 2rem;
+}
+.blurbs {
+  display: flex;
+  justify-content: space-between;
+}
+.blurbs > div {
+  max-width: 29%;
+  // flex-basis: 20%;
+  flex-grow: 1;
 }
