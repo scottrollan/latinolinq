@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import styles from './About.module.scss';
 import src from '../../assets/03.jpg';
 
 const AboutEng = () => {
   return (
     <div className={styles.about}>
+      <NavBar />
       <div className={styles.translate}>
         <em>ver esta página en español</em>
       </div>
@@ -20,7 +23,7 @@ const AboutEng = () => {
           </h4>
 
           <h5>We carry out our mission by:</h5>
-          <ul style={{ listStyle: 'square inside' }}>
+          <ul>
             <li>Providing direct services</li>
             <li>
               Facilitating information, education and training sessions for
@@ -31,6 +34,7 @@ const AboutEng = () => {
         </div>
         <img src={src} alt="" className={styles.mainPic} />
       </div>
+      <br />
       <div className={styles.section2}>
         <h1>Vision</h1>
         <p style={{ textAlign: 'center' }}>
@@ -74,6 +78,7 @@ const AboutEng = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

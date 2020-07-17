@@ -1,7 +1,10 @@
+@import '../../styles/custom-media.scss';
+
 .about {
   padding: var(--nav-height) 0 var(--footer-height);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .translate {
   align-self: flex-end;
@@ -17,10 +20,22 @@
 .blurb {
   position: relative;
   background-color: var(--lightest-gray);
-  width: 45%;
+  width: calc(45% - 4rem);
   margin: 3rem 2rem;
   padding: 4rem;
   z-index: 1;
+  @media screen and (min-width: $breakpoint-extra-large) {
+    width: 50%;
+    margin-left: 10vw;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      padding: 1rem;
+    }
+  }
+}
+.blurb > ul {
+  list-style: square outside;
 }
 .mainPic {
   width: 70%;
@@ -28,16 +43,25 @@
   right: 0;
   top: 0;
   z-index: 0;
+  @media screen and (min-width: $breakpoint-extra-large) {
+    width: 40%;
+    right: calc(10vw);
+  }
 }
 .section2 {
+  width: 100%;
   background-color: var(--lightest-gray);
   text-align: 'center';
   padding: 2rem 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 2rem 10%;
+  }
 }
 .section3 {
+  max-width: 100%;
   margin: 3rem 2rem;
 }
 .blurbs {
@@ -45,7 +69,25 @@
   justify-content: space-between;
 }
 .blurbs > div {
-  max-width: 29%;
-  // flex-basis: 20%;
-  flex-grow: 1;
+  max-width: 28%;
+}
+@media (pointer: coarse) {
+  @media screen and (max-width: $breakpoint-mobile) {
+    .section1 {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .blurb,
+    .mainPic,
+    .blurbs > div {
+      position: relative;
+      width: 90%;
+      max-width: 90%;
+      margin: 5%;
+      background-color: transparent;
+    }
+    .blurbs {
+      flex-direction: column;
+    }
+  }
 }

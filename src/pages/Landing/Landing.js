@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import styles from './Landing.module.scss';
 
@@ -8,9 +9,11 @@ const Landing = () => {
       <Button className={styles.languageButton} variant="secondary">
         español
       </Button>
-      <Button className={styles.languageButton} variant="secondary">
-        english
-      </Button>
+      <Link to="/AboutEng">
+        <Button className={styles.languageButton} variant="secondary">
+          english
+        </Button>
+      </Link>
     </div>
   );
 };
