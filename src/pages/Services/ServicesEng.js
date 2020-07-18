@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import styles from './Services.module.scss';
@@ -7,7 +8,9 @@ const ServicesEng = () => {
   return (
     <div className={styles.services}>
       <NavBar />
-      <p className={styles.translate}>ver esta página en español</p>
+      <Link to="/ServiceEsp" className={styles.translate}>
+        <em className={styles.translate}>ver esta página en español</em>
+      </Link>
       <h1>Direct Services</h1>
       <div className={styles.columns}>
         <div className={styles.singleColumn}>

@@ -1,14 +1,16 @@
 @import '../../styles/custom-media.scss';
 
 .about {
-  padding: var(--nav-height) 0 var(--footer-height);
+  padding: 0 0 var(--footer-height);
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-y: scroll;
 }
 .translate {
   align-self: flex-end;
   margin: 2rem 3rem;
+  color: #000000;
 }
 .section1 {
   position: relative;

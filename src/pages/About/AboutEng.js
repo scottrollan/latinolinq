@@ -9,9 +9,9 @@ const AboutEng = () => {
   return (
     <div className={styles.about}>
       <NavBar />
-      <div className={styles.translate}>
+      <Link to="/AboutEsp" className={styles.translate}>
         <em>ver esta página en español</em>
-      </div>
+      </Link>
       <div className={styles.section1}>
         <div className={styles.blurb}>
           <h1>Our Mission</h1>

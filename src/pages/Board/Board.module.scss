@@ -1,0 +1,77 @@
+@import '../../styles/custom-media.scss';
+@import '../../styles/custom-properties.scss';
+
+.board {
+  padding: 0 0 var(--footer-height) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.translate {
+  align-self: flex-end;
+  margin: 2rem 3rem;
+  color: #000000;
+  @media (pointer: coarse) {
+    margin: 2rem 1rem;
+  }
+}
+.person {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    display: block;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      display: block;
+    }
+  }
+}
+.imageBio {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    display: block;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      display: block;
+    }
+  }
+}
+
+.imageWrapper {
+  max-width: 40%;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    max-width: 80%;
+    margin: 0 10%;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      max-width: 100%;
+    }
+  }
+}
+.imageWrapper > img {
+  width: 100%;
+}
+.bio {
+  max-width: 55%;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    max-width: 100%;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      max-width: 100%;
+    }
+  }
+}
