@@ -22,7 +22,9 @@ const ResourcesEng = () => {
             and they don’t involve 911 or police on ANY calls without your
             explicit consent. Call toll free: 877-565-8860
           </p>
-          <a className={styles.actionButton}>Call Trans LifeLine</a>
+          <a className={styles.actionButton} href="tel:18775658860">
+            Call Trans LifeLine
+          </a>
         </div>
         <div className={styles.chunk}>
           <h3>Alianza Americas Resources </h3>
@@ -32,7 +34,12 @@ const ResourcesEng = () => {
             members have also worked hard to include information in indigenous
             languages.
           </p>
-          <a className={styles.actionButton}>Learn More</a>
+          <a
+            className={styles.actionButton}
+            href="https://docs.google.com/document/d/1sC2sEoBbAK3paR0lH3UB18kwvEitt2t68q10v2DyYyM/edit"
+          >
+            Learn More
+          </a>
         </div>
         <div className={styles.chunk}>
           <h3>Georgia COVID-19 Emotional Support Line</h3>
@@ -46,7 +53,7 @@ const ResourcesEng = () => {
             volunteers, including mental health professionals and others who
             have received training in crisis counseling.{' '}
           </p>
-          <a className={styles.actionButton}>
+          <a className={styles.actionButton} href="tel:18003998938">
             Call Georgia COVID-19 Emotional Support Line
           </a>
         </div>
@@ -58,8 +65,15 @@ const ResourcesEng = () => {
             their web page to inquire about services
           </p>
           <span>
-            <a className={styles.actionButton}>Call View Point Health</a>
-            <a className={styles.actionButton}>Visit View Point Health</a>
+            <a className={styles.actionButton} href="tel:16782092411">
+              Call View Point Health
+            </a>
+            <a
+              className={styles.actionButton}
+              href="https://www.myviewpointhealth.org/"
+            >
+              Visit View Point Health
+            </a>
           </span>
         </div>
         <div className={[`${styles.chunk} ${styles.lastChunk}`]}>
@@ -75,8 +89,18 @@ const ResourcesEng = () => {
             Hispanic or Latino community organizations.
           </p>
           <span>
-            <a className={styles.actionButton}>LCFGA</a>
-            <a className={styles.actionButton}>UNIDOSGeorgia</a>
+            <a
+              className={styles.actionButton}
+              href="https://lcfgeorgia.org/covid-19-relief/"
+            >
+              LCFGA
+            </a>
+            <a
+              className={styles.actionButton}
+              href="http://www.unidosgeorgia.com/"
+            >
+              UNIDOSGeorgia
+            </a>
           </span>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Latino LinQ Logo Color.png';
-import $ from 'jquery';
+// import $ from 'jquery';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {

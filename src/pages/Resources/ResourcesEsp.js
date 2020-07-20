@@ -22,7 +22,9 @@ const ResourcesEsp = () => {
             son transgénero y no involucran al 911 ni a la policía en NINGUNA
             llamada sin su consentimiento explícito. Llame gratis: 877-565-8860!
           </p>
-          <a className={styles.actionButton}>Llama a Trans LifeLine</a>
+          <a className={styles.actionButton} href="tel:18775658860">
+            Llama a Trans LifeLine
+          </a>
         </div>
         <div className={styles.chunk}>
           <h3>Recursos de Alianza Americas </h3>
@@ -34,7 +36,12 @@ const ResourcesEsp = () => {
             mejor manera de avanzar con nuestra agenda de justicia social. La
             mayoría de las herramientas son sólo en español.
           </p>
-          <a className={styles.actionButton}>aprende más</a>
+          <a
+            className={styles.actionButton}
+            href="https://docs.google.com/document/d/1sC2sEoBbAK3paR0lH3UB18kwvEitt2t68q10v2DyYyM/edit"
+          >
+            aprende más
+          </a>
         </div>
         <div className={styles.chunk}>
           <h3>Apoyo Emocional de Georgia del COVID-19</h3>
@@ -47,7 +54,7 @@ const ResourcesEsp = () => {
             incluidos profesionales de salud mental y otras personas que han
             recibido capacitación en consejería de crisis.
           </p>
-          <a className={styles.actionButton}>
+          <a className={styles.actionButton} href="tel:18003998938">
             Llama a Apoyo Emocional de Georgia del COVID-19
           </a>
         </div>
@@ -60,8 +67,12 @@ const ResourcesEsp = () => {
             o visite http://www.cetpa.org
           </p>
           <span>
-            <a className={styles.actionButton}>Llama a CETPA</a>
-            <a className={styles.actionButton}>Visita CETPA.org</a>
+            <a className={styles.actionButton} href="tel:17706620249">
+              Llama a CETPA
+            </a>
+            <a className={styles.actionButton} href="http://www.cetpa.org">
+              Visita CETPA.org
+            </a>
           </span>
         </div>
         <div className={[`${styles.chunk} ${styles.lastChunk}`]}>
@@ -77,8 +88,18 @@ const ResourcesEsp = () => {
             organizaciones comunitarias hispanas o latinas.
           </p>
           <span>
-            <a className={styles.actionButton}>LCFGA</a>
-            <a className={styles.actionButton}>UNIDOSGeorgia</a>
+            <a
+              className={styles.actionButton}
+              href="https://lcfgeorgia.org/covid-19-relief/"
+            >
+              LCFGA
+            </a>
+            <a
+              className={styles.actionButton}
+              href="http://www.unidosgeorgia.com/"
+            >
+              UNIDOSGeorgia
+            </a>
           </span>
         </div>
       </div>
