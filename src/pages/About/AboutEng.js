@@ -16,11 +16,11 @@ const AboutEng = () => {
         <div className={styles.blurb}>
           <h1>Our Mission</h1>
 
-          <h4>
+          <h5>
             Latino LinQ advances LGBTQ equity by facilitating support services
             to Latinx LGBTQ people, and their families, in the areas of health
             care and legal assistance.
-          </h4>
+          </h5>
 
           <h5>We carry out our mission by:</h5>
           <ul>

@@ -1,0 +1,27 @@
+@import '../../styles/custom-media.scss';
+@import '../../styles/custom-properties.scss';
+
+.contact {
+  padding: 0 0 var(--footer-height) 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--lightest-gray);
+}
+
+.translate {
+  align-self: flex-end;
+  margin: 2rem 3rem;
+  color: #000000;
+  @media (pointer: coarse) {
+    margin: 2rem 1rem;
+  }
+}
+
+.inputs {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.contactButton {
+  @include darkButton;
+}

@@ -1,71 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import styles from './About.module.scss';
 import src from '../../assets/03.jpg';
 
-const AboutEng = () => {
+const AboutEsp = () => {
   return (
     <div className={styles.about}>
+      <NavBar />
+      <Link to="/AboutEn" className={styles.translate}>
+        <em>see this page in English</em>
+      </Link>
       <div className={styles.section1}>
+        <div className={styles.blurb}>
+          <h1>Nuestra Misión</h1>
+
+          <h5>
+            Latino LinQ promueve equidad para la comunidad LGBTQ Latinx, y sus
+            familias en las áreas de cuidado de salud y asistencia legal.
+          </h5>
+
+          <h5>Llevamos a cabo nuestra misión:</h5>
+          <ul>
+            <li>A través de servicios directos</li>
+            <li>
+              Facilitando información, educación y sesiones de capacitación para
+              individuos y grupos interesados en expandir nuestra misión de
+              avanzar mayor equidad para la comunidad LGBTQ.
+            </li>
+          </ul>
+        </div>
         <img src={src} alt="" className={styles.mainPic} />
-        <h3>Our Mission</h3>
-        <p>
-          Latino LinQ advances LGBTQ equity by facilitating support services to
-          Latinx LGBTQ people, and their families, in the areas of health care
-          and legal assistance.
-        </p>
-        <p>We carry out our mission by:</p>
-        <ul style={{ listStyle: 'square inside' }}>
-          <li>Providing direct services</li>
-          <li>
-            Facilitating information, education and training sessions for
-            individuals and groups interested in expanding our mission to
-            advance LGBTQ equity
-          </li>
-        </ul>
       </div>
+      <br />
       <div className={styles.section2}>
-        <h2>Vision</h2>
-        <p>
-          A world in which LGBTQ people from across diverse Latinx communities
-          can live their full lives with dignity, respect, and free from
-          discrimination.{' '}
+        <h1>Visión</h1>
+        <p style={{ textAlign: 'center' }}>
+          Un mundo donde personas LGBTQ de diversas comunidades Latinx puedan
+          vivir una autentica vida plena con dignidad, respeto, y libre de
+          discriminación.{' '}
         </p>
       </div>
       <div className={styles.section3}>
-        <h2>About Us</h2>
-        <div>
-          <p>
-            Since its founding in 2015, Latino LinQ volunteers have been serving
-            the Latinx community in Georgia. Latino LinQ was established to
-            provide support to a diversity-rich community in terms of gender
-            identity, emphasizing the importance of creating welcoming spaces.
-          </p>
-        </div>
-        <div>
-          <p>
-            Over time, our mission has not changed, but we have aligned our
-            mission statement with the type of work performed to date and to
-            reflect our focus – the LGBTQ community. Our mission statement read
-            as follows: Latino LinQ aims to advance LGBTQ equity by facilitating
-            support services to Latinx LGBTQ people, and their families, in the
-            areas of health care and legal assistance. We carry out our mission
-            by providing direct services and by facilitating information,
-            education, and training sessions for individuals and groups
-            interested in expanding our mission.
-          </p>
-        </div>
-        <div>
-          <p>
-            As a Latinx-led community-based organization, Latino LinQ focuses
-            its efforts to create awareness throughout the Latinx community
-            about the inequality our LGBTQ brothers and sisters still face
-            today.
-          </p>
+        <h1>Quienes Somos</h1>
+        <div className={styles.blurbs}>
+          <div>
+            <p>
+              Desde sus inicios en el año 2015, los voluntarios de Latino LinQ
+              se han enfocado en servir a la comunidad Latinx en Georgia. Latino
+              LinQ fue establecido para brindarle apoyo a una comunidad rica en
+              diversidad en cuanto a identidad de género, recalcando la
+              importancia de crear espacios acogedores.
+            </p>
+          </div>
+          <div>
+            <p>
+              Con el paso del tiempo nuestra misión no ha cambiado, sino que
+              hemos alineado nuestra declaración de misión con el trabajo
+              realizado hasta el momento y para reflejar nuestro enfoque – la
+              comunidad LGBTQ. Nuestra declaración de misión lee así: Latino
+              LinQ promueve equidad para la comunidad LGBTQ facilitando
+              servicios de apoyo a personas Latinxs LGBTQ y a sus familias, en
+              las áreas de cuidado de salud y asistencia legal. Llevamos a cabo
+              nuestra misión proporcionando servicios directos, brindando
+              información, educación, y facilitando sesiones de capacitación
+              para individuos y grupos interesados en expandir nuestra misión de
+              promover equidad para la comunidad LGBTQ.
+            </p>
+          </div>
+          <div>
+            <p>
+              Y como una organización liderada por Latinxs, Latino LinQ
+              concentra sus esfuerzos en crear consciencia en la comunidad
+              Latinx acerca de la desigualdad que nuestrxs hermanxs LGBTQ siguen
+              enfrentando.
+            </p>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default AboutEng;
+export default AboutEsp;

@@ -5,7 +5,7 @@ import logo from '../assets/Latino LinQ Logo Color.png';
 import $ from 'jquery';
 import styles from './NavBar.module.scss';
 
-const NavBar = () => {
+const NavBarEsp = () => {
   return (
     <Navbar
       className={styles.navBar}
@@ -22,6 +22,8 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto"></Nav>
         <Nav>
+          <Nav.Link href="/AboutEng">English</Nav.Link>
+
           <NavDropdown title="Español" id="collasible-nav-dropdown">
             <Link to="/" className="dropdown-item">
               Página Principal
@@ -51,35 +53,6 @@ const NavBar = () => {
               Recursos
             </Link>
           </NavDropdown>
-          <NavDropdown title="English" id="collasible-nav-dropdown">
-            <Link to="/" className="dropdown-item">
-              Home
-            </Link>
-            <Link to="/AboutEng" className="dropdown-item">
-              About
-            </Link>
-            <Link to="/ServicesEng" className="dropdown-item">
-              Services
-            </Link>
-            <Link to="/Calendar" className="dropdown-item">
-              Calendar
-            </Link>
-            <Link to="/NewsletterEng" className="dropdown-item">
-              Newsletter Sign-up
-            </Link>
-            <Link to="/BoardEng" className="dropdown-item">
-              Board of Directors
-            </Link>
-            <Link to="/SupportEng" className="dropdown-item">
-              Support Us{' '}
-            </Link>
-            <Link to="/ContactEng" className="dropdown-item">
-              Contact
-            </Link>
-            <Link to="/ResourcesEng" className="dropdown-item">
-              Resources
-            </Link>
-          </NavDropdown>
           <a
             href="https://www.facebook.com/latinolinq"
             className={[`dropdown-item ${styles.aTag}`]}
@@ -104,4 +77,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarEsp;

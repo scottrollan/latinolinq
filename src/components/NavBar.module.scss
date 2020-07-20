@@ -7,7 +7,22 @@
   background-color: transparent !important;
   position: static;
 }
-
 .logo {
   max-height: var(--nav-height);
+}
+#collasible-nav-dropdown:after {
+  display: none;
+}
+.aTag {
+  text-align: center;
+  &:hover {
+    background-color: transparent;
+  }
+}
+.icon {
+  margin-top: 30%;
+  font-size: x-large;
+  &:hover {
+    color: var(--linq-green);
+  }
 }

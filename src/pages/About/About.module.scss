@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-y: scroll;
 }
 .translate {
   align-self: flex-end;
@@ -26,10 +25,14 @@
   margin: 3rem 2rem;
   padding: 4rem;
   z-index: 1;
+  @media screen and (max-width: $breakpoint-medium) {
+    width: 60%;
+  }
   @media screen and (min-width: $breakpoint-extra-large) {
-    width: 50%;
+    width: 45%;
     margin-left: 10vw;
   }
+
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
       padding: 1rem;
@@ -45,16 +48,16 @@
   right: 0;
   top: 0;
   z-index: 0;
-  @media screen and (min-width: $breakpoint-extra-large) {
-    width: 40%;
-    right: calc(10vw);
-  }
+  // @media screen and (min-width: $breakpoint-extra-large) {
+  //   width: 55%;
+  //   right: calc(10vw);
+  // }
 }
 .section2 {
   width: 100%;
   background-color: var(--lightest-gray);
   text-align: 'center';
-  padding: 2rem 25%;
+  padding: 5rem 25%;
   display: flex;
   flex-direction: column;
   align-items: center;

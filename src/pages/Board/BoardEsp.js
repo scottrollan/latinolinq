@@ -1,19 +1,19 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../components/NavBarEsp';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
-import bios from '../../data/bios';
+import bios from '../../data/biosEsp';
 import styles from './Board.module.scss';
 
-const BoardEng = () => {
+const BoardEsp = () => {
   const directory = [...bios];
   return (
     <div className={styles.board}>
       <NavBar />
-      <Link to="/BoardEsp" className={styles.translate}>
-        <em className={styles.translate}>ver esta página en español</em>
+      <Link to="/BoardEng" className={styles.translate}>
+        <em className={styles.translate}>see this page in English</em>
       </Link>
-      <h1>Board of Directors</h1>
+      <h1>Junta Directiva</h1>
       <div className={styles.directory}>
         {directory.map((p, index) => {
           return (
@@ -57,4 +57,4 @@ const BoardEng = () => {
   );
 };
 
-export default BoardEng;
+export default BoardEsp;
