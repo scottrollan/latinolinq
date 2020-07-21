@@ -20,7 +20,7 @@ const ResourcesEsp = () => {
             ¡La línea directa de crisis y apoyo entre pares de Trans Lifeline
             lanzará una extensión en español el 1 de julio! Todos sus operadores
             son transgénero y no involucran al 911 ni a la policía en NINGUNA
-            llamada sin su consentimiento explícito. Llame gratis: 877-565-8860!
+            llamada sin su consentimiento explícito! Llame gratis: 877-565-8860.
           </p>
           <a className={styles.actionButton} href="tel:18775658860">
             Llama a Trans LifeLine
