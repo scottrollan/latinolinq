@@ -18,6 +18,11 @@
   &:hover {
     background-color: transparent;
   }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      display: none;
+    }
+  }
 }
 .icon {
   margin-top: 30%;
