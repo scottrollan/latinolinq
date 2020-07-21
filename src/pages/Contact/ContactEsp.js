@@ -63,7 +63,7 @@ const ContactEsp = () => {
   return (
     <div className={styles.contact}>
       <NavBar />
-      <Link to="/ServiceEng" className={styles.translate}>
+      <Link to="/ContactEng" className={styles.translate}>
         <em className={styles.translate}>see this page in English</em>
       </Link>
       <Form

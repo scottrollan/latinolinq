@@ -8,7 +8,7 @@ const ServicesEng = () => {
   return (
     <div className={styles.services}>
       <NavBar />
-      <Link to="/ServiceEsp" className={styles.translate}>
+      <Link to="/ServicesEsp" className={styles.translate}>
         <em className={styles.translate}>ver esta página en español</em>
       </Link>
       <h1>Direct Services</h1>

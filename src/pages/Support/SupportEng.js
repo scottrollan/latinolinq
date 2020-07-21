@@ -9,7 +9,7 @@ const SupportEng = () => {
     <div className={styles.support}>
       <NavBar />
       <div className={styles.donationArea}>
-        <Link to="/ServiceEsp" className={styles.translate}>
+        <Link to="/SupportEsp" className={styles.translate}>
           <em className={styles.translate}>ver esta página en español</em>
         </Link>
         <h1>Make a Donation</h1>

@@ -63,7 +63,7 @@ const ContactEng = () => {
   return (
     <div className={styles.contact}>
       <NavBar />
-      <Link to="/ServiceEsp" className={styles.translate}>
+      <Link to="/ContactEsp" className={styles.translate}>
         <em className={styles.translate}>ver esta página en español</em>
       </Link>
       <Form

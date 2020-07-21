@@ -11,7 +11,7 @@ const ResourcesEsp = () => {
       <NavBar />
       <h1>RECURSOS</h1>
       <div className={styles.chunkArea}>
-        <Link to="/ServiceEng" className={styles.translate}>
+        <Link to="/ResourcesEng" className={styles.translate}>
           <em className={styles.translate}>see this page in English</em>
         </Link>{' '}
         <div className={styles.chunk}>

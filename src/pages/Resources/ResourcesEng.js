@@ -11,7 +11,7 @@ const ResourcesEng = () => {
       <NavBar />
       <h1>Resources</h1>
       <div className={styles.chunkArea}>
-        <Link to="/ServiceEsp" className={styles.translate}>
+        <Link to="/ResourcesEsp" className={styles.translate}>
           <em className={styles.translate}>ver esta página en español</em>
         </Link>{' '}
         <div className={styles.chunk}>

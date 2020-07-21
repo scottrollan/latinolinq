@@ -9,7 +9,7 @@ const AboutEsp = () => {
   return (
     <div className={styles.about}>
       <NavBar />
-      <Link to="/AboutEn" className={styles.translate}>
+      <Link to="/AboutEng" className={styles.translate}>
         <em>see this page in English</em>
       </Link>
       <div className={styles.section1}>
