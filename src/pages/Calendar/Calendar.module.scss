@@ -269,6 +269,16 @@ button:hover {
   width: calc(100% / 7);
 }
 
+.eventPicWrapper {
+  width: 15%;
+}
+.eventPic {
+  width: 100%;
+}
+.eventInfoWrapper {
+  width: 80%;
+}
+
 @media (pointer: coarse) {
   @media screen and (max-width: $breakpoint-extra-large) {
     .calWrapper {
