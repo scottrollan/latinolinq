@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import NextEventModal from '../../components/NextEventModal';
 import { Button } from 'react-bootstrap';
 import {
   format,
@@ -14,15 +15,30 @@ import {
   isSameDay,
   isSameMonth,
 } from 'date-fns';
+import {
+  findNextEvent,
+  nextEvent,
+  eventMonth,
+  eventDayOfMonth,
+  eventYear,
+  eventStartTime,
+  eventDayOfWeek,
+} from '../../functions/GetNextEvent';
 import { fetchEvents } from '../../api/client';
 import styles from './Calendar.module.scss';
 
 const Calendar = () => {
-  const today = new Date(Date.now()).toISOString();
+  const now = new Date(Date.now());
+  const today = now.toISOString();
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [events, setEvents] = useState([]);
-  // const [futureEvents, setFutureEvents] = useState([]);
+  const [nextEvent, setNextEvent] = useState({});
+  const [nextEventDay, setNextEventDay] = useState('');
+  const [nextEventMonth, setNextEventMonth] = useState('');
+  const [nextEventYear, setNextEventYear] = useState('');
+  const [nextEventDOW, setNextEventDOW] = useState('');
+  const [nextEventStartTime, setNextEventStartTime] = useState('');
 
   const renderHeader = () => {
     return (
@@ -132,7 +148,6 @@ const Calendar = () => {
 
   const fetchData = async () => {
     let theseEvents = [];
-    let upcomingEvents = [];
     const event = await fetchEvents;
     event.forEach((e) => {
       const rawRef = e.image.asset._ref;
@@ -151,13 +166,20 @@ const Calendar = () => {
         descriptionEsp: e.descriptionEsp,
         link1Description: e.link1Description,
         link1: e.link1,
-        link2Description: e.link1Description,
-        link2: e.link1,
+        link2Description: e.link2Description,
+        link2: e.link2,
         imageSrc: src,
       };
       theseEvents.push(currentEvent);
     });
     setEvents(events.concat(theseEvents));
+    findNextEvent(theseEvents);
+    setNextEvent(nextEvent);
+    setNextEventMonth(eventMonth);
+    setNextEventDay(eventDayOfMonth);
+    setNextEventYear(eventYear);
+    setNextEventDOW(eventDayOfWeek);
+    setNextEventStartTime(eventStartTime);
   };
 
   useEffect(() => {
@@ -176,14 +198,29 @@ const Calendar = () => {
           {renderCells()}
         </div>
         <div className={styles.upcoming}>
-          <h3>Upcoming Events</h3>
-          {events.map((e) => {
-            return <p key={e.id}>{e.title}</p>;
-          })}
+          <h3>Next Event</h3>
+          <div className={styles.datebook}>
+            <strong>{nextEventMonth}</strong>
+            <h2>{nextEventDOW}</h2>
+            <span>{nextEventDay}</span>
+          </div>
+          <h4>
+            <u>{nextEvent.title}</u>
+          </h4>
+          <em>{nextEvent.subtitle}</em>
+          <NextEventModal
+            id={nextEvent.id}
+            title={nextEvent.title}
+            date={nextEvent.date}
+            description={nextEvent.description}
+            link1={nextEvent.link1}
+            link1D={nextEvent.link1Description}
+            link2={nextEvent.link2}
+            link2D={nextEvent.link2Description}
+          />
         </div>
       </div>
       {events.map((e, index) => {
-        console.log('Today: ', today.toString(), '  Event date: ', e.start);
         return (
           <div
             key={e.id}

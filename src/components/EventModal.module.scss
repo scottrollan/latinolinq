@@ -1,0 +1,18 @@
+@import '../styles/custom-properties.scss';
+@import '../styles/custom-media.scss';
+
+.modalButton {
+  background-color: var(--linq-green);
+  border: none;
+  &:hover {
+    background-color: var(--dark-button);
+  }
+}
+.mFooter {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.footerNotes {
+  line-height: 1.2;
+}

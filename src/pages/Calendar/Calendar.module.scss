@@ -268,7 +268,35 @@ button:hover {
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
 }
+.datebook {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.4em; /* change icon size */
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  background-color: #fff;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff,
+    0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+}
+.datebook strong {
+  width: 100%;
+  text-align: center;
+  // padding: 0.4em 0;
+  color: #fff;
+  background-color: var(--linq-green);
+  border-bottom: 1px dashed #2f2f2f;
+  box-shadow: 0 2px 0 var(--linq-green);
+}
 
+.datebook span {
+  color: var(--linq-green);
+  // padding: 0 0 0.5rem 0;
+}
 .eventPicWrapper {
   width: 15%;
 }
