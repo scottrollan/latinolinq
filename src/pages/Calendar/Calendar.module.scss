@@ -137,6 +137,9 @@ header #logo .icon {
 }
 .upcoming {
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cal .header {

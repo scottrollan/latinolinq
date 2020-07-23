@@ -11,6 +11,7 @@ const EventModal = ({
   link1D,
   link2,
   link2D,
+  src,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -28,7 +29,8 @@ const EventModal = ({
         </Modal.Header>
 
         <Modal.Body>
-          {date}
+          <p>{date}</p>
+          <img src={src} alt="" className={styles.mImage} />
           <p>{description}</p>
         </Modal.Body>
 
@@ -40,14 +42,15 @@ const EventModal = ({
             >
               {link1D}.
               <span style={{ display: !link1 ? 'none' : 'inherit' }}>
-                &nbsp;Find out more <a href={link1}>&nbsp;here.</a>
+                Find out more <a href={link1}>&nbsp;here.</a>
               </span>
             </span>
             <div
               style={{
                 display: !link2D ? 'none' : 'inherit',
-                height: '2px',
+                height: '1px',
                 borderTop: '1px green solid',
+                margin: '3px 0',
               }}
             ></div>
             <span
@@ -59,7 +62,7 @@ const EventModal = ({
               {link2D}
               <span style={{ display: !link2 ? 'none' : 'inherit' }}>
                 {' '}
-                &nbsp;Find out more <a href={link2}>&nbsp;here.</a>
+                Find out more <a href={link2}>&nbsp;here.</a>
               </span>
             </span>
           </div>

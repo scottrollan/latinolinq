@@ -17,12 +17,13 @@ import {
 } from 'date-fns';
 import {
   findNextEvent,
-  nextEvent,
+  thisEvent,
   eventMonth,
   eventDayOfMonth,
   eventYear,
   eventStartTime,
   eventDayOfWeek,
+  eventSrc,
 } from '../../functions/GetNextEvent';
 import { fetchEvents } from '../../api/client';
 import styles from './Calendar.module.scss';
@@ -39,6 +40,7 @@ const Calendar = () => {
   const [nextEventYear, setNextEventYear] = useState('');
   const [nextEventDOW, setNextEventDOW] = useState('');
   const [nextEventStartTime, setNextEventStartTime] = useState('');
+  const [nextEventSrc, setNextEventSrc] = useState('');
 
   const renderHeader = () => {
     return (
@@ -174,12 +176,13 @@ const Calendar = () => {
     });
     setEvents(events.concat(theseEvents));
     findNextEvent(theseEvents);
-    setNextEvent(nextEvent);
+    setNextEvent({ ...thisEvent });
     setNextEventMonth(eventMonth);
     setNextEventDay(eventDayOfMonth);
     setNextEventYear(eventYear);
     setNextEventDOW(eventDayOfWeek);
     setNextEventStartTime(eventStartTime);
+    setNextEventSrc(eventSrc);
   };
 
   useEffect(() => {
@@ -207,16 +210,19 @@ const Calendar = () => {
           <h4>
             <u>{nextEvent.title}</u>
           </h4>
+
           <em>{nextEvent.subtitle}</em>
+
           <NextEventModal
             id={nextEvent.id}
             title={nextEvent.title}
-            date={nextEvent.date}
+            date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
             description={nextEvent.description}
             link1={nextEvent.link1}
             link1D={nextEvent.link1Description}
             link2={nextEvent.link2}
             link2D={nextEvent.link2Description}
+            src={nextEventSrc}
           />
         </div>
       </div>

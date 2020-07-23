@@ -1,10 +1,11 @@
-let nextEvent = {};
+let thisEvent = {};
 let eventMonth = '';
 let eventDayOfMonth = '';
 let eventStartTime = '';
 let eventEndTime = '';
 let eventYear = '';
 let eventDayOfWeek = '';
+let eventSrc = '';
 
 const now = new Date(Date.now());
 const today = now.toISOString();
@@ -37,8 +38,8 @@ const findNextEvent = (array) => {
   const next = array.find((ev) => {
     return ev.start > today;
   });
-  nextEvent = next;
 
+  thisEvent = { ...next };
   const d = next.start;
   //get month name
   const mes = parseInt(d.toString().substring(5, 7) - 1);
@@ -56,6 +57,9 @@ const findNextEvent = (array) => {
   const DOW = formatStartDate.toString().substring(0, 3);
   eventDayOfWeek = days[DOW];
 
+  //get src for image
+  eventSrc = next.imageSrc;
+
   const end = next.end;
   const endDate = end.toString();
   const formatEndDate = new Date(endDate);
@@ -66,11 +70,12 @@ const findNextEvent = (array) => {
 
 export {
   findNextEvent,
-  nextEvent,
+  thisEvent,
   eventMonth,
   eventDayOfMonth,
   eventYear,
   eventStartTime,
   eventEndTime,
   eventDayOfWeek,
+  eventSrc,
 };

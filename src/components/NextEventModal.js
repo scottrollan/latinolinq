@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import EventModal from './EventModal';
 
 const NextEventModal = ({
@@ -11,6 +10,7 @@ const NextEventModal = ({
   link1D,
   link2,
   link2D,
+  src,
 }) => {
   return (
     <span id={id}>
@@ -22,6 +22,7 @@ const NextEventModal = ({
         link1D={link1D}
         link2={link2}
         link2D={link2D}
+        src={src}
       />
     </span>
   );
