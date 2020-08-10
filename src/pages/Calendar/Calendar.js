@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import NextEventModal from '../../components/NextEventModal';
+import $ from 'jquery';
 import { Button } from 'react-bootstrap';
 import {
   format,
@@ -91,14 +92,11 @@ const Calendar = () => {
     const endDate = endOfWeek(monthEnd);
     const dateFormat = 'd';
     let rows = [];
-
     let days = [];
-    let day = startDate;
+    let day = startDate; //begining of display, adds 1 to every day
     let formattedDate = '';
-
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
-        // console.log(day, day.getTime());
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         days = [
@@ -155,15 +153,15 @@ const Calendar = () => {
     let theseEvents = [];
     const event = await fetchEvents;
     event.forEach((e) => {
-      const genDate = new Date(e.start.toString().substring(0, 10)).getTime();
-      console.log(genDate);
+      const trimDate = new Date(e.start).toString().substring(4, 15);
+      const simpleDate = new Date(trimDate);
       const rawRef = e.image.asset._ref;
       const refArray = rawRef.split('-');
       const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
       let currentEvent = {
         id: e._id,
         start: e.start,
-        day: genDate,
+        dayRef: simpleDate.getTime(),
         end: e.end,
         allDay: e.allDay,
         title: e.title,
@@ -178,6 +176,13 @@ const Calendar = () => {
         link2: e.link2,
         imageSrc: src,
       };
+
+      console.log(
+        'Simple Date: ',
+        simpleDate,
+        'simple date getTime: ',
+        simpleDate.getTime()
+      );
       theseEvents.push(currentEvent);
     });
     setEvents(events.concat(theseEvents));
@@ -199,7 +204,6 @@ const Calendar = () => {
     <div className={styles.calendar}>
       <NavBar />
       <h1>Próximos Eventos</h1>
-
       <div className={styles.calWrapper}>
         <div className={styles.cal}>
           {renderHeader()}
@@ -211,8 +215,8 @@ const Calendar = () => {
           <div className={styles.datebook}>
             <strong>{nextEventMonth}</strong>
             <span className={styles.dayString}>
-              {nextEventDOW.map((l) => {
-                return <span>{l}</span>;
+              {nextEventDOW.map((l, index) => {
+                return <span key={`${l}${index}`}>{l}</span>;
               })}
             </span>
             <span>{nextEventDay}</span>
@@ -227,6 +231,7 @@ const Calendar = () => {
             id={nextEvent.id}
             title={nextEvent.title}
             date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
+            startTime={nextEventStartTime}
             description={nextEvent.description}
             link1={nextEvent.link1}
             link1D={nextEvent.link1Description}
@@ -241,32 +246,54 @@ const Calendar = () => {
         const month = thisEventDate.getMonth();
         const dow = thisEventDate.getDate();
         const yr = thisEventDate.getFullYear();
+        const startTime = thisEventDate.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        $(`#${e.dayRef}`).css('border', '1px solid red');
+
         return (
           <div
             key={e.id}
+            className={styles.nextEventsList}
             style={{
-              width: '100%',
-              padding: '2rem',
-              display: e.start > today ? 'flex' : 'none',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
+              display: e.start >= today ? 'flex' : 'none',
               backgroundColor:
-                index % 2 === 0 ? '#ffffff' : 'var(--lightest-gray)',
+                index % 2 === 0 ? 'var(--lightest-gray)' : '#ffffff',
             }}
           >
             <div className={styles.eventPicWrapper}>
               <img src={e.imageSrc} alt="" className={styles.eventPic} />
             </div>
             <div className={styles.eventInfoWrapper}>
-              <h5>{`${months[month]} ${dow}, ${yr}`}</h5>
+              <h5>
+                {`${months[month]} ${dow}, ${yr}`}
+                <span
+                  style={{ display: startTime !== '' ? 'inherit' : 'none' }}
+                >
+                  {' '}
+                  at {startTime}
+                </span>
+              </h5>
               <h3>
                 {e.title} / {e.titleEsp}
               </h3>
+              <NextEventModal
+                id={nextEvent.id}
+                title={nextEvent.title}
+                date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
+                startTime={nextEventStartTime}
+                description={nextEvent.description}
+                link1={nextEvent.link1}
+                link1D={nextEvent.link1Description}
+                link2={nextEvent.link2}
+                link2D={nextEvent.link2Description}
+                src={nextEventSrc}
+              />
             </div>
           </div>
         );
       })}
-
       <Footer />
     </div>
   );
