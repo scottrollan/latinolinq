@@ -64,13 +64,6 @@ header #logo .icon {
   padding-right: 0.25em;
 }
 
-// main {
-//   display: block;
-//   margin: 0 auto;
-//   margin-top: 5em;
-//   max-width: 50em;
-// }
-
 /* GRID */
 
 .row {
@@ -108,7 +101,6 @@ header #logo .icon {
 }
 
 .colCenter {
-  /* justify-content: center; */
   text-align: center;
 }
 
@@ -121,6 +113,7 @@ header #logo .icon {
 }
 
 /* Calendar */
+
 .calWrapper {
   width: 100%;
   display: flex;
@@ -139,7 +132,7 @@ header #logo .icon {
   width: 20%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .cal .header {
@@ -296,7 +289,12 @@ button:hover {
   box-shadow: 0 2px 0 var(--linq-green);
 }
 
-.datebook span {
+.dayString {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
   color: var(--linq-green);
   // padding: 0 0 0.5rem 0;
 }

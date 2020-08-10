@@ -25,13 +25,13 @@ const months = [
   'December',
 ];
 const days = {
-  Sun: 'Sunday',
-  Mon: 'Monday',
-  Tue: 'Tuesday',
-  Wed: 'Wednesday',
-  Thu: 'Thursday',
-  Fri: 'Friday',
-  Sat: 'Saturday',
+  Sun: ['S', 'u', 'n', 'd', 'a', 'y'],
+  Mon: ['M', 'o', 'n', 'd', 'a', 'y'],
+  Tue: ['T', 'u', 'e', 's', 'd', 'a', 'y'],
+  Wed: ['W', 'e', 'd', 'n', 'e', 's', 'd', 'a', 'y'],
+  Thu: ['T', 'h', 'u', 'r', 's', 'd', 'a', 'y'],
+  Fri: ['F', 'r', 'i', 'd', 'a', 'y'],
+  Sat: ['S', 'a', 't', 'u', 'r', 'd', 'a', 'y'],
 };
 
 const findNextEvent = (array) => {
@@ -65,7 +65,7 @@ const findNextEvent = (array) => {
   const formatEndDate = new Date(endDate);
   //get end time
   eventEndTime = formatEndDate.toLocaleTimeString();
-  console.log(end - d);
+  // console.log(end - d);
 };
 
 export {
@@ -78,4 +78,5 @@ export {
   eventEndTime,
   eventDayOfWeek,
   eventSrc,
+  months,
 };

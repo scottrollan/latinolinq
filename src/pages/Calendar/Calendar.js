@@ -24,6 +24,7 @@ import {
   eventStartTime,
   eventDayOfWeek,
   eventSrc,
+  months,
 } from '../../functions/GetNextEvent';
 import { fetchEvents } from '../../api/client';
 import styles from './Calendar.module.scss';
@@ -38,7 +39,7 @@ const Calendar = () => {
   const [nextEventDay, setNextEventDay] = useState('');
   const [nextEventMonth, setNextEventMonth] = useState('');
   const [nextEventYear, setNextEventYear] = useState('');
-  const [nextEventDOW, setNextEventDOW] = useState('');
+  const [nextEventDOW, setNextEventDOW] = useState([]);
   const [nextEventStartTime, setNextEventStartTime] = useState('');
   const [nextEventSrc, setNextEventSrc] = useState('');
 
@@ -97,11 +98,13 @@ const Calendar = () => {
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
+        // console.log(day, day.getTime());
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         days = [
           ...days,
           <div
+            id={day.getTime()}
             className={[
               `${styles.col} ${styles.cell} ${
                 !isSameMonth(day, monthStart)
@@ -152,12 +155,15 @@ const Calendar = () => {
     let theseEvents = [];
     const event = await fetchEvents;
     event.forEach((e) => {
+      const genDate = new Date(e.start.toString().substring(0, 10)).getTime();
+      console.log(genDate);
       const rawRef = e.image.asset._ref;
       const refArray = rawRef.split('-');
       const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
       let currentEvent = {
         id: e._id,
         start: e.start,
+        day: genDate,
         end: e.end,
         allDay: e.allDay,
         title: e.title,
@@ -204,7 +210,11 @@ const Calendar = () => {
           <h3>Next Event</h3>
           <div className={styles.datebook}>
             <strong>{nextEventMonth}</strong>
-            <h2>{nextEventDOW}</h2>
+            <span className={styles.dayString}>
+              {nextEventDOW.map((l) => {
+                return <span>{l}</span>;
+              })}
+            </span>
             <span>{nextEventDay}</span>
           </div>
           <h4>
@@ -227,6 +237,10 @@ const Calendar = () => {
         </div>
       </div>
       {events.map((e, index) => {
+        const thisEventDate = new Date(e.start.toString());
+        const month = thisEventDate.getMonth();
+        const dow = thisEventDate.getDate();
+        const yr = thisEventDate.getFullYear();
         return (
           <div
             key={e.id}
@@ -244,7 +258,7 @@ const Calendar = () => {
               <img src={e.imageSrc} alt="" className={styles.eventPic} />
             </div>
             <div className={styles.eventInfoWrapper}>
-              <h5>{e.start}</h5>
+              <h5>{`${months[month]} ${dow}, ${yr}`}</h5>
               <h3>
                 {e.title} / {e.titleEsp}
               </h3>

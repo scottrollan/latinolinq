@@ -7,3 +7,11 @@ export const client = sanityClient({
 });
 
 export const fetchEvents = client.fetch("*[_type == 'event'] | order(start)");
+
+export const fetchBoard = client.fetch(
+  "*[_type == 'board'] | order(displayOrder)"
+);
+
+export const fetchServices = client.fetch(
+  "*[_type == 'service'] | order(start)"
+);
