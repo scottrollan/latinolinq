@@ -187,11 +187,16 @@ button:hover {
 
 .cal .body .cell {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   height: 5em;
   border-right: 1px solid var(--border-color);
   overflow: hidden;
   cursor: pointer;
   background: var(--neutral-color);
+  padding: 0.25rem 0.5rem 0.25rem 0.1rem;
   transition: 0.25s ease-out;
 }
 
@@ -223,11 +228,9 @@ button:hover {
 }
 
 .cal .body .cell .number {
-  position: absolute;
+  align-self: flex-end;
   font-size: 82.5%;
   line-height: 1;
-  top: 0.75em;
-  right: 0.75em;
   font-weight: 700;
 }
 
@@ -263,6 +266,17 @@ button:hover {
   flex-grow: 0;
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
+}
+
+.eventOnCal {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  z-index: 8;
+  white-space: nowrap;
+}
+
+.eventOnCal:hover {
 }
 .datebook {
   display: flex;

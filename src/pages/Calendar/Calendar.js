@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import NextEventModal from '../../components/NextEventModal';
-import $ from 'jquery';
 import { Button } from 'react-bootstrap';
 import {
   format,
@@ -33,8 +32,6 @@ import styles from './Calendar.module.scss';
 const Calendar = () => {
   const now = new Date(Date.now());
   const today = now.toISOString();
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const [events, setEvents] = useState([]);
   const [nextEvent, setNextEvent] = useState({});
   const [nextEventDay, setNextEventDay] = useState('');
@@ -43,6 +40,9 @@ const Calendar = () => {
   const [nextEventDOW, setNextEventDOW] = useState([]);
   const [nextEventStartTime, setNextEventStartTime] = useState('');
   const [nextEventSrc, setNextEventSrc] = useState('');
+  let monthStart = new Date();
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(currentMonth);
 
   const renderHeader = () => {
     return (
@@ -68,41 +68,40 @@ const Calendar = () => {
     );
   };
 
-  const renderDays = () => {
-    const dateFormat = 'EEEE';
-    let days = [];
-
-    let startDate = startOfWeek(currentMonth);
-
-    for (let i = 0; i < 7; i++) {
-      days = [
-        ...days,
-        <span className={[`${styles.col} ${styles.colCenter}`]} key={i}>
-          {format(addDays(startDate, i), dateFormat)}
-        </span>,
-      ];
-    }
-    return <div className={[`${styles.days} ${styles.row}`]}>{days}</div>;
-  };
-
-  const renderCells = () => {
-    const monthStart = startOfMonth(currentMonth);
+  const renderCells = (thisMonth) => {
+    monthStart = startOfMonth(thisMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
     const endDate = endOfWeek(monthEnd);
     const dateFormat = 'd';
     let rows = [];
     let days = [];
-    let day = startDate; //begining of display, adds 1 to every day
-    let formattedDate = '';
+    let day = startDate; // 'Fri Aug 07 2020 .....'
+    let formattedDate = ''; // '7'
+    let ref; // '1597291200000' (day.getTime())
     while (day <= endDate) {
+      let ev = '';
       for (let i = 0; i < 7; i++) {
+        //collect 7 days to make a week
         formattedDate = format(day, dateFormat);
+        ref = day.getTime();
+        events.map((r) => {
+          if (r.dayRef === ref) {
+            ev = [
+              ...ev,
+              <span className={styles.eventOnCal} key={r.id}>
+                {r.title}
+              </span>,
+            ];
+          }
+        });
         const cloneDay = day;
+
         days = [
           ...days,
           <div
-            id={day.getTime()}
+            value={formattedDate}
+            id={ref}
             className={[
               `${styles.col} ${styles.cell} ${
                 !isSameMonth(day, monthStart)
@@ -116,10 +115,12 @@ const Calendar = () => {
             onClick={() => onDateClick(cloneDay)}
           >
             <span className={styles.number}>{formattedDate}</span>
+            {ev}
             <span className={styles.bg}>{formattedDate}</span>
           </div>,
         ];
         day = addDays(day, 1);
+        ev = '';
       }
       rows = [
         ...rows,
@@ -127,8 +128,9 @@ const Calendar = () => {
           {days}
         </div>,
       ];
-      days = [];
+      days = []; // an array of objects
     }
+
     return <div className={styles.body}>{rows}</div>;
   };
 
@@ -139,9 +141,8 @@ const Calendar = () => {
   const goToToday = () => {
     setCurrentMonth(new Date());
     setSelectedDate(new Date());
-    renderCells();
   };
-  const nextMonth = () => {
+  const nextMonth = async () => {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
 
@@ -177,12 +178,6 @@ const Calendar = () => {
         imageSrc: src,
       };
 
-      console.log(
-        'Simple Date: ',
-        simpleDate,
-        'simple date getTime: ',
-        simpleDate.getTime()
-      );
       theseEvents.push(currentEvent);
     });
     setEvents(events.concat(theseEvents));
@@ -207,8 +202,27 @@ const Calendar = () => {
       <div className={styles.calWrapper}>
         <div className={styles.cal}>
           {renderHeader()}
-          {renderDays()}
-          {renderCells()}
+          <div className={[`${styles.days} ${styles.row}`]}>
+            {[
+              'Sunday',
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+            ].map((ddd) => {
+              return (
+                <span
+                  className={[`${styles.col} ${styles.colCenter}`]}
+                  key={ddd}
+                >
+                  {ddd}
+                </span>
+              );
+            })}
+          </div>
+          {renderCells(currentMonth)}
         </div>
         <div className={styles.upcoming}>
           <h3>Next Event</h3>
@@ -250,7 +264,6 @@ const Calendar = () => {
           hour: '2-digit',
           minute: '2-digit',
         });
-        $(`#${e.dayRef}`).css('border', '1px solid red');
 
         return (
           <div
