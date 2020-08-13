@@ -98,7 +98,11 @@ const Calendar = () => {
           if (r.dayRef === ref) {
             ev = [
               ...ev,
-              <span style={{ zIndex: '999', position: 'relative' }} key={r.id}>
+              <span
+                className={styles.calEventSpan}
+                style={{ zIndex: '999', position: 'relative' }}
+                key={r.id}
+              >
                 <div
                   style={{
                     position: 'absolute',
@@ -125,9 +129,6 @@ const Calendar = () => {
                   src={r.imageSrc}
                 />
               </span>,
-              // <span className={styles.eventOnCal} key={r.id}>
-              //   {r.title}
-              // </span>,
             ];
           }
         });
@@ -325,9 +326,7 @@ const Calendar = () => {
                   at {startTime}
                 </span>
               </h5>
-              <h3>
-                {e.title} / {e.titleEsp}
-              </h3>
+              <h3>{e.title}</h3>
               <EventModal
                 text="More..."
                 id={e.id}

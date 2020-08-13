@@ -343,9 +343,7 @@ const Calendar = () => {
                   at {startTime}
                 </span>
               </h5>
-              <h3>
-                {e.title} / {e.titleEsp}
-              </h3>
+              <h3>{e.titleEsp}</h3>
               <EventModal
                 text="mas..."
                 id={e.id}
