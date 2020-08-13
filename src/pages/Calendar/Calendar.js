@@ -224,11 +224,11 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div className={styles.upcoming}>
-          <h3>Next Event</h3>
-          <div className={styles.datebook}>
-            <strong>{nextEventMonth}</strong>
-            <span className={styles.dayString}>
+        <div className={styles.nextEvent} id="nextEvent">
+          <h3 id="nextEventHeader">Next Event</h3>
+          <div className={styles.datebook} id="datebook">
+            <strong id="datebookMonth">{nextEventMonth}</strong>
+            <span className={styles.dayString} id="datebookDay">
               {nextEventDOW.map((l, index) => {
                 return <span key={`${l}${index}`}>{l}</span>;
               })}
@@ -236,10 +236,11 @@ const Calendar = () => {
             <span>{nextEventDay}</span>
           </div>
           <h4>
-            <u>{nextEvent.title}</u>
+            <u id="eventTitle">{nextEvent.title}</u>
           </h4>
 
-          <em>{nextEvent.subtitle}</em>
+          <em id="eventSubtitle">{nextEvent.subtitle}</em>
+          <div></div>
 
           <NextEventModal
             id={nextEvent.id}
@@ -292,16 +293,17 @@ const Calendar = () => {
                 {e.title} / {e.titleEsp}
               </h3>
               <NextEventModal
-                id={nextEvent.id}
-                title={nextEvent.title}
-                date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
-                startTime={nextEventStartTime}
-                description={nextEvent.description}
-                link1={nextEvent.link1}
-                link1D={nextEvent.link1Description}
-                link2={nextEvent.link2}
-                link2D={nextEvent.link2Description}
-                src={nextEventSrc}
+                buttonText="More..."
+                id={e.id}
+                title={e.title}
+                date={`${months[month]} ${dow}, ${yr}`}
+                startTime={e.StartTime}
+                description={e.description}
+                link1={e.link1}
+                link1D={e.link1Description}
+                link2={e.link2}
+                link2D={e.link2Description}
+                src={e.Src}
               />
             </div>
           </div>

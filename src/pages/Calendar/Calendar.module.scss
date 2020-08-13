@@ -37,6 +37,7 @@
   --border-color: #eee;
   --bg-color: #777;
   --neutral-color: #fff;
+  --cell-height: 8em;
 }
 
 /* GENERAL */
@@ -128,10 +129,11 @@ header #logo .icon {
   background: var(--neutral-color);
   border: 1px solid var(--border-color);
 }
-.upcoming {
+.nextEvent {
   width: 20%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -191,12 +193,12 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 5em;
+  height: var(--cell-height);
   border-right: 1px solid var(--border-color);
   overflow: hidden;
   cursor: pointer;
   background: var(--neutral-color);
-  padding: 0.25rem 0.5rem 0.25rem 0.1rem;
+  padding: 0.25rem;
   transition: 0.25s ease-out;
 }
 
@@ -244,7 +246,7 @@ button:hover {
   line-height: 1;
   color: var(--linq-green);
   opacity: 0;
-  font-size: 8em;
+  font-size: calc(var(--cell-height) * 1.1);
   position: absolute;
   top: -0.2em;
   right: -0.05em;
@@ -269,10 +271,7 @@ button:hover {
 }
 
 .eventOnCal {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  z-index: 8;
+  border-radius: 5%;
   white-space: nowrap;
 }
 
@@ -281,8 +280,9 @@ button:hover {
 .datebook {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-bottom: 2%;
   font-size: 1.4em; /* change icon size */
   position: relative;
   width: 7rem;
@@ -335,8 +335,7 @@ button:hover {
 @media (pointer: coarse) {
   @media screen and (max-width: $breakpoint-extra-large) {
     .calWrapper {
-      width: 90%;
-      margin-left: 5%;
+      width: 98%;
     }
   }
 }
@@ -346,7 +345,7 @@ button:hover {
     flex-direction: column;
   }
   .cal,
-  .upcoming {
+  .nextEvent {
     align-self: center;
     width: 90%;
     margin-bottom: 3rem;

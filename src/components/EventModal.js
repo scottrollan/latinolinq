@@ -12,6 +12,7 @@ const EventModal = ({
   link2,
   link2D,
   src,
+  button,
 }) => {
   const [show, setShow] = useState(false);
 
