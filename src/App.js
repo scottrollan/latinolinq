@@ -4,6 +4,7 @@ import Landing from './pages/Landing/Landing';
 import AboutEng from './pages/About/AboutEng';
 import ServicesEng from './pages/Services/ServicesEng';
 import Calendar from './pages/Calendar/Calendar';
+import CalendarEsp from './pages/Calendar/CalendarEsp';
 import NewsletterEng from './pages/Newsletter/NewsletterEng';
 import BoardEng from './pages/Board/BoardEng';
 import SupportEng from './pages/Support/SupportEng';
@@ -34,7 +35,7 @@ function App() {
           <Route path="/ResourcesEng" exact component={ResourcesEng}></Route>
           <Route path="/AboutEsp" exact component={AboutEsp}></Route>
           <Route path="/ServicesEsp" exact component={ServicesEsp}></Route>
-          <Route path="/Calendar" exact component={Calendar}></Route>
+          <Route path="/CalendarEsp" exact component={CalendarEsp}></Route>
           <Route path="/NewsletterEsp" exact component={NewsletterEsp}></Route>
           <Route path="/BoardEsp" exact component={BoardEsp}></Route>
           <Route path="/SupportEsp" exact component={SupportEsp}></Route>

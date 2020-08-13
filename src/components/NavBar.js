@@ -32,7 +32,7 @@ const NavBar = () => {
             <Link to="/ServicesEsp" className="dropdown-item">
               Servicios
             </Link>
-            <Link to="/Calendar" className="dropdown-item">
+            <Link to="/CalendarEsp" className="dropdown-item">
               Calendario
             </Link>
             <Link to="/NewsletterEsp" className="dropdown-item">

@@ -194,6 +194,8 @@ button:hover {
   justify-content: space-between;
   align-items: flex-start;
   height: var(--cell-height);
+  width: 14.28%;
+  max-width: 14.28%;
   border-right: 1px solid var(--border-color);
   overflow: hidden;
   cursor: pointer;
@@ -246,14 +248,16 @@ button:hover {
   line-height: 1;
   color: var(--linq-green);
   opacity: 0;
-  font-size: calc(var(--cell-height) * 1.1);
+  font-size: var(--cell-height);
   position: absolute;
-  top: -0.2em;
-  right: -0.05em;
+  bottom: 0;
+  right: 0;
   transition: 0.25s ease-out;
   letter-spacing: -0.07em;
 }
-
+.cal .body .cell:hover {
+  overflow: visible;
+}
 .cal .body .cell:hover .bg,
 .cal .body .selected .bg {
   opacity: 0.1;
@@ -269,13 +273,26 @@ button:hover {
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
 }
-
-.eventOnCal {
-  border-radius: 5%;
-  white-space: nowrap;
+.calEventSpan {
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-large) {
+      max-width: 100%;
+    }
+  }
+  &:hover {
+    overflow: visible;
+  }
 }
 
-.eventOnCal:hover {
+.calEventSpan > button {
+  width: auto;
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-large) {
+      max-width: 90%;
+      color: var(--linq-green);
+      overflow: hidden;
+    }
+  }
 }
 .datebook {
   display: flex;
@@ -295,8 +312,8 @@ button:hover {
 }
 .datebook strong {
   width: 100%;
+  font-size: large;
   text-align: center;
-  // padding: 0.4em 0;
   color: #fff;
   background-color: var(--linq-green);
   border-bottom: 1px dashed #2f2f2f;

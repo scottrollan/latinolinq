@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import NextEventModal from '../../components/NextEventModal';
+import EventModal from '../../components/EventModal';
 import { Button } from 'react-bootstrap';
 import {
   format,
@@ -86,12 +87,47 @@ const Calendar = () => {
         formattedDate = format(day, dateFormat);
         ref = day.getTime();
         events.map((r) => {
+          const eventDate = new Date(r.start);
+          const month = eventDate.getMonth();
+          const dow = eventDate.getDate();
+          const yr = eventDate.getFullYear();
+          const startTime = eventDate.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          });
           if (r.dayRef === ref) {
             ev = [
               ...ev,
-              <span className={styles.eventOnCal} key={r.id}>
-                {r.title}
+              <span style={{ zIndex: '999', position: 'relative' }} key={r.id}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '50%',
+                    borderBottom: '2px solid var(--white)',
+                    transform: 'rotate(-15deg) translateX(-2px)',
+                    transformOrigin: 'center center',
+                    display: r.start >= today ? 'none' : 'inherit',
+                  }}
+                ></div>
+                <EventModal
+                  text={r.title}
+                  id={r.id}
+                  title={r.title}
+                  subtitle={r.subtitle}
+                  date={`${months[month]} ${dow}, ${yr}`}
+                  startTime={startTime}
+                  description={r.description}
+                  link1={r.link1}
+                  link1D={r.link1Description}
+                  link2={r.link2}
+                  link2D={r.link2Description}
+                  src={r.imageSrc}
+                />
               </span>,
+              // <span className={styles.eventOnCal} key={r.id}>
+              //   {r.title}
+              // </span>,
             ];
           }
         });
@@ -198,7 +234,7 @@ const Calendar = () => {
   return (
     <div className={styles.calendar}>
       <NavBar />
-      <h1>Próximos Eventos</h1>
+      <h1>Upcoming Events</h1>
       <div className={styles.calWrapper}>
         <div className={styles.cal}>
           {renderHeader()}
@@ -224,11 +260,11 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div className={styles.nextEvent} id="nextEvent">
-          <h3 id="nextEventHeader">Next Event</h3>
-          <div className={styles.datebook} id="datebook">
-            <strong id="datebookMonth">{nextEventMonth}</strong>
-            <span className={styles.dayString} id="datebookDay">
+        <div className={styles.nextEvent}>
+          <h3>Next Event</h3>
+          <div className={styles.datebook}>
+            <strong>{nextEventMonth}</strong>
+            <span className={styles.dayString}>
               {nextEventDOW.map((l, index) => {
                 return <span key={`${l}${index}`}>{l}</span>;
               })}
@@ -236,15 +272,15 @@ const Calendar = () => {
             <span>{nextEventDay}</span>
           </div>
           <h4>
-            <u id="eventTitle">{nextEvent.title}</u>
+            <u>{nextEvent.title}</u>
           </h4>
-
-          <em id="eventSubtitle">{nextEvent.subtitle}</em>
           <div></div>
 
           <NextEventModal
             id={nextEvent.id}
+            text="More..."
             title={nextEvent.title}
+            subtitle={nextEvent.subtitle}
             date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
             startTime={nextEventStartTime}
             description={nextEvent.description}
@@ -292,10 +328,11 @@ const Calendar = () => {
               <h3>
                 {e.title} / {e.titleEsp}
               </h3>
-              <NextEventModal
-                buttonText="More..."
+              <EventModal
+                text="More..."
                 id={e.id}
                 title={e.title}
+                subtitle={e.subtitle}
                 date={`${months[month]} ${dow}, ${yr}`}
                 startTime={e.StartTime}
                 description={e.description}
@@ -303,7 +340,7 @@ const Calendar = () => {
                 link1D={e.link1Description}
                 link2={e.link2}
                 link2D={e.link2Description}
-                src={e.Src}
+                src={e.imageSrc}
               />
             </div>
           </div>

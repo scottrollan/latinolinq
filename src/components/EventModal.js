@@ -1,28 +1,38 @@
 import React, { Fragment, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import $ from 'jquery';
 import styles from './EventModal.module.scss';
 
 const EventModal = ({
   title,
+  subtitle,
   description,
   date,
+  startTime,
   link1,
   link1D,
   link2,
   link2D,
   src,
-  button,
+  text,
 }) => {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShow(false);
+    $('html').css('overflow-y', 'scroll');
+  };
+  const handleShow = (e) => {
+    e.stopPropagation();
+    setShow(true);
+    $('html').css('overflow-y', 'hidden');
+  };
 
   return (
-    <Fragment>
+    <Fragment className="eventModal">
       <Button className={styles.modalButton} onClick={handleShow}>
-        More...
+        {text}
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -30,7 +40,10 @@ const EventModal = ({
         </Modal.Header>
 
         <Modal.Body>
-          <p>{date}</p>
+          <p as="h5">{subtitle}</p>
+          <p>
+            {date} {startTime}
+          </p>
           <img src={src} alt="" className={styles.mImage} />
           <p>{description}</p>
         </Modal.Body>

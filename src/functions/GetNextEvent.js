@@ -19,10 +19,24 @@ const months = [
   'June',
   'July',
   'August',
-  'Septemeber',
+  'September',
   'October',
   'November',
   'December',
+];
+const meses = [
+  'enero',
+  'febrero',
+  'marzo',
+  'abril',
+  'mayo',
+  'junio',
+  'julio',
+  'agosto',
+  'septiembre',
+  'octubre',
+  'noviembre',
+  'deciembre',
 ];
 const days = {
   Sun: ['S', 'u', 'n', 'd', 'a', 'y'],
@@ -32,6 +46,15 @@ const days = {
   Thu: ['T', 'h', 'u', 'r', 's', 'd', 'a', 'y'],
   Fri: ['F', 'r', 'i', 'd', 'a', 'y'],
   Sat: ['S', 'a', 't', 'u', 'r', 'd', 'a', 'y'],
+};
+const spanishDays = {
+  Sunday: ['d', 'o', 'm', 'i', 'n', 'g', 'o'],
+  Monday: ['l', 'u', 'n', 'e', 's'],
+  Tuesday: ['m', 'a', 'r', 't', 'e', 's'],
+  Wednesday: ['m', 'i', 'é', 'r', 'c', 'o', 'l', 'e', 's'],
+  Thursday: ['j', 'u', 'e', 'v', 'e', 's'],
+  Friday: ['v', 'i', 'e', 'r', 'n', 'e', 's'],
+  Saturday: ['s', 'á', 'b', 'a', 'd', 'o'],
 };
 
 const findNextEvent = (array) => {
@@ -52,7 +75,10 @@ const findNextEvent = (array) => {
   const strDate = d.toString();
   const formatStartDate = new Date(strDate);
   //get starting time
-  eventStartTime = formatStartDate.toLocaleTimeString();
+  eventStartTime = formatStartDate.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
   //get day of week (Monday, Friday...)
   const DOW = formatStartDate.toString().substring(0, 3);
   eventDayOfWeek = days[DOW];
@@ -79,4 +105,6 @@ export {
   eventDayOfWeek,
   eventSrc,
   months,
+  meses,
+  spanishDays,
 };

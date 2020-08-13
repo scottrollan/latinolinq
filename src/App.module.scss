@@ -7,6 +7,12 @@ body {
   line-height: 2em;
   overflow-x: hidden;
 }
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+}
+
 h1 {
   margin-bottom: 2rem;
 }

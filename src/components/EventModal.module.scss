@@ -4,6 +4,7 @@
 .modalButton {
   background-color: var(--linq-green);
   border: none;
+  white-space: nowrap;
   &:hover {
     background-color: var(--dark-button);
   }
