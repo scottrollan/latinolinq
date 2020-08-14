@@ -48,7 +48,7 @@
 }
 
 .imageWrapper {
-  max-width: 40%;
+  width: 30%;
 
   @media screen and (max-width: $breakpoint-medium) {
     max-width: 80%;
@@ -64,7 +64,8 @@
   width: 100%;
 }
 .bio {
-  max-width: 55%;
+  max-width: 65%;
+  font-size: larger;
 
   @media screen and (max-width: $breakpoint-medium) {
     max-width: 100%;

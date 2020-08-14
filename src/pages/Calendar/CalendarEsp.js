@@ -37,7 +37,7 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const [nextEvent, setNextEvent] = useState({});
   const [nextEventDay, setNextEventDay] = useState('');
-  const [nextEventMonth, setNextEventMonth] = useState('');
+  const [nextEventMonth, setNextEventMonth] = useState;
   const [nextEventYear, setNextEventYear] = useState('');
   const [nextEventDOW, setNextEventDOW] = useState([]);
   const [nextEventStartTime, setNextEventStartTime] = useState('');
