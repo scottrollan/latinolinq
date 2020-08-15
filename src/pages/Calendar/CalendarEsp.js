@@ -37,7 +37,7 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const [nextEvent, setNextEvent] = useState({});
   const [nextEventDay, setNextEventDay] = useState('');
-  const [nextEventMonth, setNextEventMonth] = useState;
+  const [nextEventMonth, setNextEventMonth] = useState('');
   const [nextEventYear, setNextEventYear] = useState('');
   const [nextEventDOW, setNextEventDOW] = useState([]);
   const [nextEventStartTime, setNextEventStartTime] = useState('');
@@ -280,22 +280,30 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div className={styles.nextEvent} id="nextEvent">
-          <h3 id="nextEventHeader">el próximo evento</h3>
-          <div className={styles.datebook} id="datebook">
-            <strong id="datebookMonth">{spanishMonths[nextEventMonth]}</strong>
-            <span>{nextEventDay}</span>
-            <span className={styles.dayString} id="datebookDay">
-              <span>{spanishDays[nextEventDOW.join('')]}</span>
-            </span>
-          </div>
-          <h4>
-            <u id="eventTitle">{nextEvent.titleEsp}</u>
-          </h4>
-          <div></div>
-
+        <div
+          style={{ width: '20%', display: 'flex', flexDirection: 'column' }}
+          id="nextEvent"
+        >
           <NextEventModal
-            text="ver mas..."
+            text={
+              <span className={styles.nextEvent}>
+                <h3 id="nextEventHeader">el próximo evento</h3>
+                <div className={styles.datebook} id="datebook">
+                  <strong id="datebookMonth">
+                    {spanishMonths[nextEventMonth]}
+                  </strong>
+                  <span style={{ color: 'var(--dark-gray)' }}>
+                    {nextEventDay}
+                  </span>
+                  <span className={styles.dayString} id="datebookDay">
+                    <span>{spanishDays[nextEventDOW.join('')]}</span>
+                  </span>
+                </div>
+                <h4>
+                  <u id="eventTitle">{nextEvent.titleEsp}</u>
+                </h4>
+              </span>
+            }
             id={nextEvent.id}
             title={nextEvent.titleEsp}
             subtitle={nextEvent.subtitleEsp}

@@ -22,7 +22,6 @@ const BoardEng = () => {
         bioEng: m.bioEng,
         src: src,
       };
-      console.log('m.bioEng: ', m.bioEng);
       boardMembers.push(currentMember);
     });
     setBoard(boardMembers);

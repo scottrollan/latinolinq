@@ -2,11 +2,18 @@
 @import '../styles/custom-media.scss';
 
 .modalButton {
-  background-color: var(--linq-green);
+  background-color: transparent;
   border: none;
-  white-space: nowrap;
-  &:hover {
-    background-color: var(--dark-button);
+  color: var(--linq-green);
+  display: inherit;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: inherit;
+    border: inherit;
+    box-shadow: inherit;
+    color: inherit;
   }
 }
 .mImage {

@@ -261,25 +261,30 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div className={styles.nextEvent}>
-          <h3>Next Event</h3>
-          <div className={styles.datebook}>
-            <strong>{nextEventMonth}</strong>
-            <span className={styles.dayString}>
-              {nextEventDOW.map((l, index) => {
-                return <span key={`${l}${index}`}>{l}</span>;
-              })}
-            </span>
-            <span>{nextEventDay}</span>
-          </div>
-          <h4>
-            <u>{nextEvent.title}</u>
-          </h4>
-          <div></div>
-
+        <div
+          style={{ width: '20%', display: 'flex', flexDirection: 'column' }}
+          id="nextEvent"
+        >
           <NextEventModal
             id={nextEvent.id}
-            text="More..."
+            text={
+              <div className={styles.nextEvent}>
+                <h3>Next Event</h3>
+                <div className={styles.datebook}>
+                  <strong>{nextEventMonth}</strong>
+                  <span className={styles.dayString}>
+                    {nextEventDOW.map((l, index) => {
+                      return <span key={`${l}${index}`}>{l}</span>;
+                    })}
+                  </span>
+                  <span>{nextEventDay}</span>
+                </div>
+                <h4>
+                  <u>{nextEvent.title}</u>
+                </h4>
+                <div></div>
+              </div>
+            }
             title={nextEvent.title}
             subtitle={nextEvent.subtitle}
             date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
