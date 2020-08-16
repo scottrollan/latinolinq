@@ -7,6 +7,14 @@
   background-color: transparent !important;
   position: static;
 }
+button,
+.rightMargin1 {
+  margin-right: 1rem;
+}
+.toRight {
+  text-align: right !important;
+}
+
 .logo {
   max-height: var(--nav-height);
 }
@@ -17,6 +25,9 @@
   text-align: center;
   &:hover {
     background-color: transparent;
+  }
+  @media screen and (max-width: $breakpoint-large) {
+    display: none;
   }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {

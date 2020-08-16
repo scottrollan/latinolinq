@@ -48,11 +48,7 @@ const BoardEsp = () => {
                 backgroundColor: index % 2 === 0 ? 'var(--lightest-gray)' : '',
               }}
             >
-              <h3
-                style={{
-                  alignSelf: index % 2 === 0 ? 'flex-start' : 'flex-end',
-                }}
-              >
+              <h3>
                 {p.name}, {p.titleEsp}
               </h3>
               <div
@@ -61,9 +57,10 @@ const BoardEsp = () => {
                   flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
                 }}
               >
-                <div className={styles.imageWrapper}>
-                  <img src={p.src} alt="" />
-                </div>
+                <div
+                  className={styles.imageWrapper}
+                  style={{ backgroundImage: `url(${p.src})` }}
+                ></div>
 
                 <div className={styles.bio}>
                   {p.bioEsp.map((bp, i) => (

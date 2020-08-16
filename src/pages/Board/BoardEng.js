@@ -48,11 +48,7 @@ const BoardEng = () => {
                 backgroundColor: index % 2 === 0 ? 'var(--lightest-gray)' : '',
               }}
             >
-              <h3
-                style={{
-                  alignSelf: index % 2 === 0 ? 'flex-start' : 'flex-end',
-                }}
-              >
+              <h3>
                 {p.name}, {p.titleEng}
               </h3>
               <div
@@ -61,8 +57,11 @@ const BoardEng = () => {
                   flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
                 }}
               >
-                <div className={styles.imageWrapper}>
-                  <img src={p.src} alt="" />
+                <div
+                  className={styles.imageWrapper}
+                  style={{ backgroundImage: `url(${p.src})` }}
+                >
+                  {/* <img src={p.src} alt="" /> */}
                 </div>
 
                 <div className={styles.bio}>

@@ -87,7 +87,10 @@ const findNextEvent = (array) => {
   eventSrc = next.imageSrc;
 
   const end = next.end;
-  const endDate = end.toString();
+  let endDate;
+  if (end) {
+    endDate = end.toString();
+  }
   const formatEndDate = new Date(endDate);
   //get end time
   eventEndTime = formatEndDate.toLocaleTimeString();

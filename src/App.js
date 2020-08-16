@@ -17,6 +17,7 @@ import BoardEsp from './pages/Board/BoardEsp';
 import SupportEsp from './pages/Support/SupportEsp';
 import ContactEsp from './pages/Contact/ContactEsp';
 import ResourcesEsp from './pages/Resources/ResourcesEsp';
+import Admin from './pages/Admin/Admin';
 import styles from './App.module.scss';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/SupportEsp" exact component={SupportEsp}></Route>
           <Route path="/ContactEsp" exact component={ContactEsp}></Route>
           <Route path="/ResourcesEsp" exact component={ResourcesEsp}></Route>
+          <Route path="/admin" exact component={Admin}></Route>
         </Switch>
       </Router>
     </div>

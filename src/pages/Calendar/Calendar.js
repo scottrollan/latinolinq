@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import NextEventModal from '../../components/NextEventModal';
 import EventModal from '../../components/EventModal';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import {
   format,
@@ -235,6 +236,9 @@ const Calendar = () => {
   return (
     <div className={styles.calendar}>
       <NavBar />
+      <Link to="/CalendarEsp" className={styles.translate}>
+        <em className={styles.translate}>ver esta página en español</em>
+      </Link>
       <h1>Upcoming Events</h1>
       <div className={styles.calWrapper}>
         <div className={styles.cal}>

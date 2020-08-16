@@ -10,6 +10,14 @@
   background-color: var(--lightest-gray);
 }
 
+.translate {
+  align-self: flex-end;
+  margin: 2rem 3rem;
+  color: #000000;
+  @media (pointer: coarse) {
+    margin: 2rem 1rem;
+  }
+}
 .calendar > h1 {
   margin-bottom: 4rem;
 }

@@ -22,47 +22,61 @@
   padding: 4rem;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+}
+.person h3 {
+  align-self: flex-start;
   @media screen and (max-width: $breakpoint-medium) {
-    display: block;
+    width: 100%;
+    text-align: center;
   }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
-      display: block;
+      width: 100%;
+      text-align: center;
     }
   }
 }
+
 .imageBio {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
   @media screen and (max-width: $breakpoint-medium) {
-    display: block;
+    flex-direction: column !important;
+    align-items: center;
   }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
-      display: block;
+      flex-direction: column !important;
+      align-items: center;
     }
   }
 }
 
 .imageWrapper {
   width: 30%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center center;
 
   @media screen and (max-width: $breakpoint-medium) {
-    max-width: 80%;
-    margin: 0 10%;
+    width: 90%;
+    height: 250px;
+    background-size: contain;
   }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
-      max-width: 100%;
+      width: 90%;
+      height: 250px;
+      background-size: contain;
     }
   }
 }
-.imageWrapper > img {
-  width: 100%;
-}
+
 .bio {
   max-width: 65%;
   font-size: larger;

@@ -13,7 +13,7 @@ const NavBar = () => {
       expand="lg"
       bg="light"
       variant="light"
-      sticky="top"
+      fixed="top"
     >
       <Navbar.Brand href="/">
         <img src={logo} className={[`${styles.logo}`]} alt="LatinoLinQ" />
@@ -22,61 +22,121 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto"></Nav>
         <Nav>
-          <NavDropdown title="Español" id="collasible-nav-dropdown">
-            <Link to="/" className="dropdown-item">
+          <NavDropdown
+            title="Español"
+            id="collasible-nav-dropdown"
+            className={[`${styles.rightMargin1} ${styles.toRight}`]}
+          >
+            <Link
+              to="/"
+              className={[`dropdown-item ${styles.toRight}`]}
+              style={{ textAlign: 'right' }}
+            >
               Página Principal
             </Link>
-            <Link to="/AboutEsp" className="dropdown-item">
+            <Link
+              to="/AboutEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Quienes Somos
             </Link>
-            <Link to="/ServicesEsp" className="dropdown-item">
+            <Link
+              to="/ServicesEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Servicios
             </Link>
-            <Link to="/CalendarEsp" className="dropdown-item">
+            <Link
+              to="/CalendarEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Calendario
             </Link>
-            <Link to="/NewsletterEsp" className="dropdown-item">
+            <Link
+              to="/NewsletterEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Registro al Boletín
             </Link>
-            <Link to="/BoardEsp" className="dropdown-item">
+            <Link
+              to="/BoardEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Junta Directiva
             </Link>
-            <Link to="/SupportEsp" className="dropdown-item">
+            <Link
+              to="/SupportEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Apóyanos
             </Link>
-            <Link to="/ContactEsp" className="dropdown-item">
+            <Link
+              to="/ContactEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Contáctanos
             </Link>
-            <Link to="/ResourcesEsp" className="dropdown-item">
+            <Link
+              to="/ResourcesEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Recursos
             </Link>
           </NavDropdown>
-          <NavDropdown title="English" id="collasible-nav-dropdown">
-            <Link to="/" className="dropdown-item">
+          <NavDropdown
+            title="English"
+            id="collasible-nav-dropdown"
+            className={[`${styles.rightMargin1} ${styles.toRight}`]}
+          >
+            <Link to="/" className={[`dropdown-item ${styles.toRight}`]}>
               Home
             </Link>
-            <Link to="/AboutEng" className="dropdown-item">
+            <Link
+              to="/AboutEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               About
             </Link>
-            <Link to="/ServicesEng" className="dropdown-item">
+            <Link
+              to="/ServicesEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Services
             </Link>
-            <Link to="/Calendar" className="dropdown-item">
+            <Link
+              to="/Calendar"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Calendar
             </Link>
-            <Link to="/NewsletterEng" className="dropdown-item">
+            <Link
+              to="/NewsletterEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Newsletter Sign-up
             </Link>
-            <Link to="/BoardEng" className="dropdown-item">
+            <Link
+              to="/BoardEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Board of Directors
             </Link>
-            <Link to="/SupportEng" className="dropdown-item">
+            <Link
+              to="/SupportEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Support Us{' '}
             </Link>
-            <Link to="/ContactEng" className="dropdown-item">
+            <Link
+              to="/ContactEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Contact
             </Link>
-            <Link to="/ResourcesEng" className="dropdown-item">
+            <Link
+              to="/ResourcesEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
               Resources
             </Link>
           </NavDropdown>
