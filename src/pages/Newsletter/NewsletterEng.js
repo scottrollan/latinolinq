@@ -8,7 +8,7 @@ import styles from './Newsletter.module.scss';
 
 const NewsletterEng = () => {
   const signUpNewsletter = () => {
-    //hit chimpmail
+    //hit mailChimp here
   };
 
   return (

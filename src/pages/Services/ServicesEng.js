@@ -9,8 +9,9 @@ const ServicesEng = () => {
   const [services, setServices] = useState([]);
 
   const fetchData = async () => {
-    let theseServicess = [];
+    let theseServices = [];
     const service = await fetchServices;
+
     service.forEach((s) => {
       const rawRef = s.serviceImage.asset._ref;
       const refArray = rawRef.split('-');
@@ -19,11 +20,11 @@ const ServicesEng = () => {
         id: s._id,
         description: s.descriptionEng,
         title: s.titleEng,
-        imageSrc: src,
+        src: src,
       };
-      theseServicess.push(currentService);
+      theseServices.push(currentService);
     });
-    setServices(services.concat(theseServicess));
+    setServices(theseServices);
   };
 
   useEffect(() => {
@@ -38,45 +39,31 @@ const ServicesEng = () => {
       </Link>
       <h1>Direct Services</h1>
       <div className={styles.columns}>
-        {services.forEach((i) => {
+        {services.map((i, index) => {
           return (
-            <div key={i._id} className={styles.singleColumn}>
-              <div className={styles.imageWrapper1}>
-                <img src={i.imageSrc} alt="" />
-              </div>
-              <h3>{i.titleEng}</h3>
-              <p>{i.descriptionEng}</p>
+            <div key={`${i._id}${index}`} className={styles.singleColumn}>
+              <div
+                className={styles.imageWrapper}
+                style={{
+                  width: '100%',
+                  height: '18rem',
+                  background: `url(${i.src})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundOrigin: 'content-box',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  marginTop: index === 1 ? '9rem' : 0,
+                }}
+              ></div>
+              <h3>{i.title}</h3>
+              <div>
+                {i.description.map((dp) => (
+                  <p key={dp._key}>{dp.children[0].text}</p>
+                ))}
+              </div>{' '}
             </div>
           );
         })}
-        {/* <div className={styles.singleColumn}>
-          <div className={styles.imageWrapper1}></div>
-          <h3>Mutual Support and Discussion Group</h3>
-          <p>
-            The Mutual Support and Discussion Group is a place where gays,
-            lesbians, and transsexuals can freely express themselves and share
-            their experiences from which others can gain knowledge.{' '}
-          </p>
-        </div>
-        <div className={styles.singleColumn} style={{ marginTop: '12rem' }}>
-          <div className={styles.imageWrapper2}></div>
-          <h3>Referrals</h3>
-          <h4>help accessing needed services</h4>
-          <p>
-            Are you looking for a service or program, and need help finding it?
-            Call us (678-744-LINQ o 678-744-5467) or send an email
-            (LatinoLinQ@gmail.com) with your question. Our volunteers will help!
-          </p>
-        </div>
-        <div className={styles.singleColumn}>
-          <div className={styles.imageWrapper3}></div>
-          <h3>Health education workshops and HIV prevention</h3>
-          <p>
-            We promote health through educational activities with small or large
-            groups. We also promote HIV prevention through awareness, condoms,
-            and referrals to HIV testing.
-          </p>
-        </div> */}
       </div>
       <a href="tel:678-744-5467" className={styles.contactButton}>
         {' '}

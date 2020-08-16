@@ -9,11 +9,11 @@ const ResourcesEng = () => {
   return (
     <div className={styles.resources}>
       <NavBar />
+      <Link to="/ResourcesEsp" className={styles.translate}>
+        <em className={styles.translate}>ver esta página en español</em>
+      </Link>{' '}
       <h1>Resources</h1>
       <div className={styles.chunkArea}>
-        <Link to="/ResourcesEsp" className={styles.translate}>
-          <em className={styles.translate}>ver esta página en español</em>
-        </Link>{' '}
         <div className={styles.chunk}>
           <h3>Trans Lifeline</h3>
           <p>

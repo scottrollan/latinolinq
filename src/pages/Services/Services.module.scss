@@ -2,7 +2,7 @@
 @import '../../styles/custom-properties.scss';
 
 .services {
-  padding: 0 0 var(--footer-height) 0;
+  padding: var(--nav-height) 0 var(--footer-height) 0;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -12,6 +12,12 @@
   align-self: flex-end;
   margin: 2rem 3rem;
   color: #000000;
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-large) {
+      align-self: center;
+      margin: 2rem 0;
+    }
+  }
 }
 
 .services > h1 {
@@ -20,23 +26,40 @@
 
 .columns {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+  }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
-      flex-direction: column;
+      width: 100%;
+      align-items: center;
     }
   }
 }
-
+.spacer {
+  @media screen and (max-width: $breakpoint-medium) {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-extra-large) {
+      display: none;
+    }
+  }
+}
 .singleColumn {
   display: flex;
   flex-direction: column;
   max-width: 29%;
   align-items: center;
+  @media screen and (max-width: $breakpoint-medium) {
+    max-width: 90%;
+    margin: 1rem 5% !important;
+  }
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-extra-large) {
       max-width: 90%;
-      margin: 1rem 5% !important;
+      margin: 0.5rem 5% !important;
     }
   }
 }
@@ -44,18 +67,7 @@
   width: 100%;
   height: 20rem;
 }
-.imageWrapper1 {
-  background: url('../../assets/01.jpg') no-repeat center;
-  background-size: 120% auto;
-}
-.imageWrapper2 {
-  background: #ffffff url('../../assets/referralHands.jpg') no-repeat center;
-  background-size: 110% auto;
-}
-.imageWrapper3 {
-  background: #ffffff url('../../assets/handsjpg.jpg') no-repeat center;
-  background-size: 100% auto;
-}
+
 .singleColumn > h3,
 .singleColumn > h4,
 .singleColumn > p {

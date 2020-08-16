@@ -78,7 +78,7 @@ const ContactEng = () => {
       >
         <input type="hidden" name="form-name" value="contact" />
         <AlertMessageSent />
-        <h1>CONTACT US</h1>
+        <h1>Contact Us</h1>
         <Form.Control
           type="text"
           name="name"

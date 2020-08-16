@@ -18,5 +18,5 @@ export const fetchBoard = Client.fetch(
 );
 
 export const fetchServices = Client.fetch(
-  "*[_type == 'service'] | order(start)"
+  "*[_type == 'service'] | order(displayOrder)"
 );
