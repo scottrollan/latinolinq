@@ -10,7 +10,7 @@ const Admin = () => {
       <Button
         variant="secondary"
         className={styles.adminButton}
-        href="http://google.com"
+        href="https://angry-swirles-752fba.netlify.app/"
         target="_blank"
         rel="noopener noreferrer"
       >

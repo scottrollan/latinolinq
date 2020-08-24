@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../../components/NavBar';
 import { Link } from 'react-router-dom';
+import { Client, fetchBoard } from '../../api/client';
+import imageUrlBuilder from '@sanity/image-url';
+import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import { fetchBoard } from '../../api/client';
 import styles from './Board.module.scss';
+
+const builder = imageUrlBuilder(Client);
+
+const urlFor = (source) => {
+  return builder.image(source);
+};
 
 const BoardEsp = () => {
   const [board, setBoard] = useState([]);
@@ -13,9 +20,8 @@ const BoardEsp = () => {
     const member = await fetchBoard;
 
     member.forEach((m) => {
-      const rawRef = m.memberImage.asset._ref;
-      const refArray = rawRef.split('-');
-      const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
+      const imageObj = m.memberImage;
+      const src = urlFor(imageObj).url().toString();
       let currentMember = {
         name: m.name,
         titleEsp: m.titleEsp,

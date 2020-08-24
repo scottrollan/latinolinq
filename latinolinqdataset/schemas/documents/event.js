@@ -19,7 +19,7 @@ export default {
       type: 'string',
     },
     {
-      name: 'subtitulo',
+      name: 'subtitleEsp',
       title: 'Subtítulo',
       type: 'string',
     },
@@ -42,11 +42,6 @@ export default {
         timeFormat: 'HH:mm',
         timeStep: 15,
       },
-    },
-    {
-      name: 'allDay',
-      type: 'boolean',
-      title: 'All Day Event?',
     },
     {
       name: 'description',
@@ -90,7 +85,7 @@ export default {
         'Any emphasized information (Ex: "Register Now!!" - this will be bolded at the bottome of the event)',
     },
     {
-      name: 'informaci0nImportante',
+      name: 'importantInfoEsp',
       type: 'string',
       title:
         'Cualquier información enfatizada (Ej: "¡Regístrese ahora!" - esto estará en negrita al final de la descripción del evento)',
