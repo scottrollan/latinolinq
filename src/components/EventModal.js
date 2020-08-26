@@ -42,7 +42,7 @@ const EventModal = ({
         <Modal.Body>
           <p as="h5">{subtitle}</p>
           <p>
-            {date} {startTime}
+            {date} at {startTime}
           </p>
           <img src={src} alt="" className={styles.mImage} />
           <p>{description}</p>
@@ -56,7 +56,10 @@ const EventModal = ({
             >
               {link1D}.
               <span style={{ display: !link1 ? 'none' : 'inherit' }}>
-                Find out more <a href={link1}>&nbsp;here.</a>
+                Find out more{' '}
+                <a href={link1} target="_blank" rel="noopener noreferrer">
+                  &nbsp;here.
+                </a>
               </span>
             </span>
             <div
@@ -76,7 +79,10 @@ const EventModal = ({
               {link2D}
               <span style={{ display: !link2 ? 'none' : 'inherit' }}>
                 {' '}
-                Find out more <a href={link2}>&nbsp;here.</a>
+                Find out more{' '}
+                <a href={link2} target="_blank" rel="noopener noreferrer">
+                  &nbsp;here.
+                </a>
               </span>
             </span>
           </div>

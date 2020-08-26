@@ -24,6 +24,20 @@ const months = [
   'November',
   'December',
 ];
+export const spanishMonths = {
+  January: 'enero',
+  February: 'febrero',
+  March: 'marzo',
+  April: 'abril',
+  May: 'mayo',
+  June: 'junio',
+  July: 'julio',
+  August: 'agosto',
+  September: 'septiembre',
+  October: 'octubre',
+  November: 'noviembre',
+  December: 'deciembre',
+};
 const meses = [
   'enero',
   'febrero',
@@ -38,15 +52,15 @@ const meses = [
   'noviembre',
   'deciembre',
 ];
-const days = {
-  Sun: ['S', 'u', 'n', 'd', 'a', 'y'],
-  Mon: ['M', 'o', 'n', 'd', 'a', 'y'],
-  Tue: ['T', 'u', 'e', 's', 'd', 'a', 'y'],
-  Wed: ['W', 'e', 'd', 'n', 'e', 's', 'd', 'a', 'y'],
-  Thu: ['T', 'h', 'u', 'r', 's', 'd', 'a', 'y'],
-  Fri: ['F', 'r', 'i', 'd', 'a', 'y'],
-  Sat: ['S', 'a', 't', 'u', 'r', 'd', 'a', 'y'],
-};
+const days = [
+  ['S', 'u', 'n', 'd', 'a', 'y'],
+  ['M', 'o', 'n', 'd', 'a', 'y'],
+  ['T', 'u', 'e', 's', 'd', 'a', 'y'],
+  ['W', 'e', 'd', 'n', 'e', 's', 'd', 'a', 'y'],
+  ['T', 'h', 'u', 'r', 's', 'd', 'a', 'y'],
+  ['F', 'r', 'i', 'd', 'a', 'y'],
+  ['S', 'a', 't', 'u', 'r', 'd', 'a', 'y'],
+];
 const spanishDays = {
   Sunday: ['d', 'o', 'm', 'i', 'n', 'g', 'o'],
   Monday: ['l', 'u', 'n', 'e', 's'],
@@ -63,24 +77,32 @@ const findNextEvent = (array) => {
   });
 
   thisEvent = { ...next };
-  const d = next.start;
-  //get month name
-  const mes = parseInt(d.toString().substring(5, 7) - 1);
-  eventMonth = months[mes];
-  //get day of the month (7, 23, 31, etc.)
-  eventDayOfMonth = d.toString().substring(8, 10);
+  const d = new Date(next.start);
+  //get month number (0-11), then month name from array
+  const monthNum = d.getMonth();
+  eventMonth = months[monthNum];
+  //get day of the month (1-31)
+  eventDayOfMonth = d.getDate();
   //get year
-  eventYear = d.toString().substring(0, 4);
+  eventYear = d.getFullYear();
 
-  const strDate = d.toString();
-  const formatStartDate = new Date(strDate);
   //get starting time
-  eventStartTime = formatStartDate.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-  //get day of week (Monday, Friday...)
-  const DOW = formatStartDate.toString().substring(0, 3);
+  let amPm = 'AM';
+  let hr = d.getHours();
+  if (hr > 12) {
+    hr = hr - 12;
+    amPm = 'PM';
+  }
+  hr = parseInt(hr);
+  let min = d.getMinutes();
+  if (min < 10) {
+    min = '0' + parseInt(min);
+  } else {
+    min = parseInt(min);
+  }
+  eventStartTime = `${hr}:${min} ${amPm}`;
+
+  const DOW = d.getDay();
   eventDayOfWeek = days[DOW];
 
   //get src for image

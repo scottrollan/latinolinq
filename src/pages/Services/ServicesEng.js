@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { fetchServices } from '../../api/client';
+import { fetchServices, Client } from '../../api/client';
+import imageUrlBuilder from '@sanity/image-url';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import styles from './Services.module.scss';
 
 const ServicesEng = () => {
+  const builder = imageUrlBuilder(Client);
+
+  const urlFor = (source) => {
+    return builder.image(source);
+  };
+
   const [services, setServices] = useState([]);
 
   const fetchData = async () => {
@@ -13,14 +20,13 @@ const ServicesEng = () => {
     const service = await fetchServices;
 
     service.forEach((s) => {
-      const rawRef = s.serviceImage.asset._ref;
-      const refArray = rawRef.split('-');
-      const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
+      const imageObj = s.serviceImage;
+      const imageUrl = urlFor(imageObj).url().toString();
       let currentService = {
         id: s._id,
         description: s.descriptionEng,
         title: s.titleEng,
-        src: src,
+        src: imageUrl,
       };
       theseServices.push(currentService);
     });

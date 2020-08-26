@@ -28,10 +28,17 @@ import {
   eventSrc,
   meses,
   spanishDays,
+  spanishMonths,
 } from '../../functions/GetNextEvent';
-import { fetchEvents } from '../../api/client';
+import { fetchEvents, Client } from '../../api/client';
+import imageUrlBuilder from '@sanity/image-url';
 import styles from './Calendar.module.scss';
 
+const builder = imageUrlBuilder(Client);
+
+const urlFor = (source) => {
+  return builder.image(source);
+};
 const Calendar = () => {
   const now = new Date(Date.now());
   const today = now.toISOString();
@@ -46,21 +53,6 @@ const Calendar = () => {
   let monthStart = new Date();
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(currentMonth);
-
-  const spanishMonths = {
-    January: 'enero',
-    February: 'febrero',
-    March: 'marzo',
-    April: 'abril',
-    May: 'mayo',
-    June: 'junio',
-    July: 'julio',
-    August: 'agosto',
-    September: 'septiembre',
-    October: 'octubre',
-    November: 'noviembre',
-    December: 'deciembre',
-  };
 
   const renderHeader = () => {
     const esteMes = format(currentMonth, 'MMMM');
@@ -213,9 +205,8 @@ const Calendar = () => {
     event.forEach((e) => {
       const trimDate = new Date(e.start).toString().substring(4, 15);
       const simpleDate = new Date(trimDate);
-      const rawRef = e.image.asset._ref;
-      const refArray = rawRef.split('-');
-      const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
+      const imageObj = e.image;
+      const imageUrl = urlFor(imageObj).url().toString();
       let currentEvent = {
         id: e._id,
         start: e.start,
@@ -232,7 +223,7 @@ const Calendar = () => {
         link1: e.link1,
         link2Description: e.link2Description,
         link2: e.link2,
-        imageSrc: src,
+        imageSrc: imageUrl,
       };
 
       theseEvents.push(currentEvent);
@@ -294,7 +285,7 @@ const Calendar = () => {
                 <h3 id="nextEventHeader">el próximo evento</h3>
                 <div className={styles.datebook} id="datebook">
                   <strong id="datebookMonth">
-                    {spanishMonths[nextEventMonth]}
+                    {spanishMonths[format(currentMonth, 'MMMM')]}
                   </strong>
                   <span style={{ color: 'var(--dark-gray)' }}>
                     {nextEventDay}
@@ -311,7 +302,7 @@ const Calendar = () => {
             id={nextEvent.id}
             title={nextEvent.titleEsp}
             subtitle={nextEvent.subtitleEsp}
-            date={`${nextEventMonth} ${nextEventDay}, ${nextEventYear}`}
+            date={`${nextEventDay} de ${nextEventMonth} de ${nextEventYear}`}
             startTime={`a las ${nextEventStartTime}`}
             description={nextEvent.descriptionEsp}
             link1={nextEvent.link1}

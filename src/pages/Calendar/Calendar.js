@@ -28,9 +28,15 @@ import {
   eventSrc,
   months,
 } from '../../functions/GetNextEvent';
-import { fetchEvents } from '../../api/client';
+import { fetchEvents, Client } from '../../api/client';
+import imageUrlBuilder from '@sanity/image-url';
 import styles from './Calendar.module.scss';
 
+const builder = imageUrlBuilder(Client);
+
+const urlFor = (source) => {
+  return builder.image(source);
+};
 const Calendar = () => {
   const now = new Date(Date.now());
   const today = now.toISOString();
@@ -194,9 +200,8 @@ const Calendar = () => {
     event.forEach((e) => {
       const trimDate = new Date(e.start).toString().substring(4, 15);
       const simpleDate = new Date(trimDate);
-      const rawRef = e.image.asset._ref;
-      const refArray = rawRef.split('-');
-      const src = `https://cdn.sanity.io/images/q4pr99l8/production/${refArray[1]}-${refArray[2]}.${refArray[3]}`;
+      const imageObj = e.image;
+      const imageUrl = urlFor(imageObj).url().toString();
       let currentEvent = {
         id: e._id,
         start: e.start,
@@ -213,7 +218,7 @@ const Calendar = () => {
         link1: e.link1,
         link2Description: e.link2Description,
         link2: e.link2,
-        imageSrc: src,
+        imageSrc: imageUrl,
       };
 
       theseEvents.push(currentEvent);
@@ -303,7 +308,7 @@ const Calendar = () => {
         </div>
       </div>
       {events.map((e, index) => {
-        const thisEventDate = new Date(e.start.toString());
+        const thisEventDate = new Date(e.start);
         const month = thisEventDate.getMonth();
         const dow = thisEventDate.getDate();
         const yr = thisEventDate.getFullYear();
@@ -342,7 +347,7 @@ const Calendar = () => {
                 title={e.title}
                 subtitle={e.subtitle}
                 date={`${months[month]} ${dow}, ${yr}`}
-                startTime={e.StartTime}
+                startTime={startTime}
                 description={e.description}
                 link1={e.link1}
                 link1D={e.link1Description}
