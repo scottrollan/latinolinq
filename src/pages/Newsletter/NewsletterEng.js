@@ -6,9 +6,29 @@ import { Form, Button } from 'react-bootstrap';
 import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
 
-const NewsletterEng = () => {
+const NewsletterEng = (e) => {
   const signUpNewsletter = () => {
-    //hit mailChimp here
+    const data = { 'form-name': 'newsletter', name, email, message };
+
+    fetch('/', {
+      method: 'POST',
+      body: encode(data),
+    })
+      .then(() => {
+        setStatus('Form Submission Successful!');
+        $('#alertMessageSent').css('display', 'flex');
+        $('#alertMessageSent').delay(1500).fadeOut(1000);
+        setName('');
+        setEmail('');
+        setMessage('');
+        $('#contactForm')[0].reset();
+      })
+      .catch((error) => {
+        setStatus('Form Submission Failed!');
+        console.log(error);
+        alert(status);
+      });
+    e.preventDefault();
   };
 
   return (
@@ -22,10 +42,16 @@ const NewsletterEng = () => {
           <h1>Newsletter Sign-up</h1>
           <Form onSubmit={signUpNewsletter}>
             <Form.Group controlId="formBasicEmail">
+              <input type="hidden" name="form-name" value="newsletter" />
+              <input
+                type="hidden"
+                name="message"
+                value="Please add me to your newsletter"
+              />
               <Form.Label>Full Name</Form.Label>
-              <Form.Control type="text" required />
+              <Form.Control type="text" name="name" required />
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" required />
+              <Form.Control type="email" name="email" required />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
