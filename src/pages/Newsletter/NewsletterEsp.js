@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import $ from 'jquery';
 import { Form, Button } from 'react-bootstrap';
 import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
@@ -13,6 +14,15 @@ const NewsletterEng = (e) => {
   const [message, setMessage] = useState(
     'por favor suscríbeme al Boletín Latino Linq'
   );
+
+  const encode = (data) => {
+    const formData = new FormData();
+    Object.keys(data).forEach((k) => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
+
   const signUpNewsletter = () => {
     const data = {
       'form-name': 'newsletter',
