@@ -6,13 +6,22 @@ import { Form, Button } from 'react-bootstrap';
 import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
 
+//latinolinq@gmail.com
+
 const NewsletterEng = (e) => {
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(
+    'lease sign me up for the Latino Linq Newsletter'
+  );
+
   const signUpNewsletter = () => {
     const data = {
       'form-name': 'newsletter',
       name,
       email,
-      message: 'please sign me up for the Latino Linq Newsletter',
+      message,
     };
 
     fetch('/', {
@@ -36,6 +45,15 @@ const NewsletterEng = (e) => {
     e.preventDefault();
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'name') {
+      return setName(value);
+    }
+    if (name === 'email') {
+      return setEmail(value);
+    }
+  };
   return (
     <div className={styles.newsletter}>
       <NavBar />
@@ -54,9 +72,21 @@ const NewsletterEng = (e) => {
                 value="Please add me to your newsletter"
               />
               <Form.Label>Full Name</Form.Label>
-              <Form.Control type="text" name="name" required />
+              <Form.Control
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                required
+              />
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" name="email" required />
+              <Form.Control
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>

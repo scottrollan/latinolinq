@@ -7,12 +7,18 @@ import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
 
 const NewsletterEng = (e) => {
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(
+    'por favor suscríbeme al Boletín Latino Linq'
+  );
   const signUpNewsletter = () => {
     const data = {
       'form-name': 'newsletter',
       name,
       email,
-      message: 'por favor suscríbeme al Boletín Latino Linq',
+      message,
     };
 
     fetch('/', {
@@ -36,6 +42,15 @@ const NewsletterEng = (e) => {
     e.preventDefault();
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'name') {
+      return setName(value);
+    }
+    if (name === 'email') {
+      return setEmail(value);
+    }
+  };
   return (
     <div className={styles.newsletter}>
       <NavBar />
@@ -54,9 +69,21 @@ const NewsletterEng = (e) => {
                 value="Please add me to your newsletter"
               />
               <Form.Label>Nombre y apellido</Form.Label>
-              <Form.Control type="text" name="name" required />
+              <Form.Control
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                required
+              />
               <Form.Label>Dirección de correo electrónico</Form.Label>
-              <Form.Control type="email" name="email" required />
+              <Form.Control
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
               <Form.Text className="text-muted">
                 Nunca compartiremos su correo electrónico con nadie más.{' '}
               </Form.Text>
