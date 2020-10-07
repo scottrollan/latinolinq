@@ -7,6 +7,11 @@
   flex-direction: column;
   position: relative;
   align-items: center;
+  @media (pointer: coarse) {
+    @media screen and (width: $breakpoint-medium) {
+      font-size: larger;
+    }
+  }
 }
 .resources > hr {
   display: block;
@@ -44,8 +49,28 @@
   display: flex;
   justify-content: space-between;
 }
+.chunk span a,
+.chunk a {
+  @media screen and (max-width: $breakpoint-medium) {
+    width: 100%;
+    text-align: center;
+  }
+}
 .lastChunk {
   border-bottom: none;
+}
+
+.twoButtons {
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+  }
+}
+.twoButtons a {
+  @media screen and (max-width: $breakpoint-medium) {
+    margin-top: 1rem;
+  }
 }
 
 .actionButton {

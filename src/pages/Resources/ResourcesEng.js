@@ -64,7 +64,7 @@ const ResourcesEng = () => {
             and to adults up to 65 years of age. Call 678-209-2411 or visit
             their web page to inquire about services
           </p>
-          <span>
+          <span className={styles.twoButtons}>
             <a className={styles.actionButton} href="tel:16782092411">
               Call View Point Health
             </a>
@@ -88,7 +88,7 @@ const ResourcesEng = () => {
             visit UNIDOSGeorgia.com - a website dedicated to finding help from
             Hispanic or Latino community organizations.
           </p>
-          <span>
+          <span className={styles.twoButtons}>
             <a
               className={styles.actionButton}
               href="https://lcfgeorgia.org/covid-19-relief/"

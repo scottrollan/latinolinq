@@ -49,14 +49,12 @@ const ServicesEng = () => {
           return (
             <div key={`${i._id}${index}`} className={styles.singleColumn}>
               <div
-                className={styles.spacer}
-                style={{ height: index === 1 ? '9rem' : '0' }}
-              ></div>
-              <div
-                className={styles.imageWrapper}
+                className={
+                  index === 1 //the middle column gets another class (middleBlock)
+                    ? [` ${styles.imageWrapper} ${styles.middleBlock}`]
+                    : styles.imageWrapper
+                }
                 style={{
-                  width: '100%',
-                  height: '18rem',
                   background: `url(${i.src})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundOrigin: 'content-box',

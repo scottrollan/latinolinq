@@ -75,48 +75,49 @@ const findNextEvent = (array) => {
   const next = array.find((ev) => {
     return ev.start > today;
   });
+  if (next) {
+    thisEvent = { ...next };
+    const d = new Date(next.start);
+    //get month number (0-11), then month name from array
+    const monthNum = d.getMonth();
+    eventMonth = months[monthNum];
+    //get day of the month (1-31)
+    eventDayOfMonth = d.getDate();
+    //get year
+    eventYear = d.getFullYear();
 
-  thisEvent = { ...next };
-  const d = new Date(next.start);
-  //get month number (0-11), then month name from array
-  const monthNum = d.getMonth();
-  eventMonth = months[monthNum];
-  //get day of the month (1-31)
-  eventDayOfMonth = d.getDate();
-  //get year
-  eventYear = d.getFullYear();
+    //get starting time
+    let amPm = 'AM';
+    let hr = d.getHours();
+    if (hr > 12) {
+      hr = hr - 12;
+      amPm = 'PM';
+    }
+    hr = parseInt(hr);
+    let min = d.getMinutes();
+    if (min < 10) {
+      min = '0' + parseInt(min);
+    } else {
+      min = parseInt(min);
+    }
+    eventStartTime = `${hr}:${min} ${amPm}`;
 
-  //get starting time
-  let amPm = 'AM';
-  let hr = d.getHours();
-  if (hr > 12) {
-    hr = hr - 12;
-    amPm = 'PM';
+    const DOW = d.getDay();
+    eventDayOfWeek = days[DOW];
+
+    //get src for image
+    eventSrc = next.imageSrc;
+
+    const end = next.end;
+    let endDate;
+    if (end) {
+      endDate = end.toString();
+    }
+    const formatEndDate = new Date(endDate);
+    //get end time
+    eventEndTime = formatEndDate.toLocaleTimeString();
+    // console.log(end - d);
   }
-  hr = parseInt(hr);
-  let min = d.getMinutes();
-  if (min < 10) {
-    min = '0' + parseInt(min);
-  } else {
-    min = parseInt(min);
-  }
-  eventStartTime = `${hr}:${min} ${amPm}`;
-
-  const DOW = d.getDay();
-  eventDayOfWeek = days[DOW];
-
-  //get src for image
-  eventSrc = next.imageSrc;
-
-  const end = next.end;
-  let endDate;
-  if (end) {
-    endDate = end.toString();
-  }
-  const formatEndDate = new Date(endDate);
-  //get end time
-  eventEndTime = formatEndDate.toLocaleTimeString();
-  // console.log(end - d);
 };
 
 export {

@@ -16,7 +16,7 @@ const NextEventModal = ({
   text,
 }) => {
   return (
-    <span id={id}>
+    <div id={id}>
       <EventModal
         text={text}
         title={title}
@@ -30,7 +30,7 @@ const NextEventModal = ({
         link2D={link2D}
         src={src}
       />
-    </span>
+    </div>
   );
 };
 

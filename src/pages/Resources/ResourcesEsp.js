@@ -66,7 +66,7 @@ const ResourcesEsp = () => {
             años de edad. Llame al 770.662.0249 para acceder servicio en español
             o visite http://www.cetpa.org
           </p>
-          <span>
+          <span className={styles.twoButtons}>
             <a className={styles.actionButton} href="tel:17706620249">
               Llama a CETPA
             </a>
@@ -87,7 +87,7 @@ const ResourcesEsp = () => {
             UNIDOSGeorgia.com una página web dedicada a que encuentre ayuda de
             organizaciones comunitarias hispanas o latinas.
           </p>
-          <span>
+          <span className={styles.twoButtons}>
             <a
               className={styles.actionButton}
               href="https://lcfgeorgia.org/covid-19-relief/"

@@ -30,7 +30,7 @@ const EventModal = ({
   };
 
   return (
-    <Fragment className="eventModal">
+    <div className="eventModal">
       <Button className={styles.modalButton} onClick={handleShow}>
         {text}
       </Button>
@@ -91,7 +91,7 @@ const EventModal = ({
           </Button>
         </Modal.Footer>
       </Modal>
-    </Fragment>
+    </div>
   );
 };
 

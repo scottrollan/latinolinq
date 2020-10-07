@@ -5,6 +5,11 @@
   width: 100vw;
   max-width: 100vw;
   // background-color: transparent !important;
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-medium) {
+      font-size: larger;
+    }
+  }
 }
 button,
 .rightMargin1 {
@@ -12,6 +17,11 @@ button,
 }
 .toRight {
   text-align: right !important;
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-medium) {
+      font-size: larger;
+    }
+  }
 }
 
 .logo {

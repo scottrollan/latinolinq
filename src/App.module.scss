@@ -39,4 +39,9 @@ em {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (pointer: coarse) {
+    @media screen and (max-width: $breakpoint-medium) {
+      font-size: larger;
+    }
+  }
 }

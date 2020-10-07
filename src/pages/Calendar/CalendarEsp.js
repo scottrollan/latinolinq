@@ -276,28 +276,30 @@ const Calendar = () => {
           {renderCells(currentMonth)}
         </div>
         <div
-          style={{ width: '20%', display: 'flex', flexDirection: 'column' }}
+          style={{ maxWidth: '80%', display: 'flex', flexDirection: 'column' }}
           id="nextEvent"
         >
           <NextEventModal
             text={
-              <span className={styles.nextEvent}>
-                <h3 id="nextEventHeader">el próximo evento</h3>
-                <div className={styles.datebook} id="datebook">
-                  <strong id="datebookMonth">
-                    {spanishMonths[format(currentMonth, 'MMMM')]}
-                  </strong>
-                  <span style={{ color: 'var(--dark-gray)' }}>
-                    {nextEventDay}
-                  </span>
-                  <span className={styles.dayString} id="datebookDay">
-                    <span>{spanishDays[nextEventDOW.join('')]}</span>
-                  </span>
-                </div>
-                <h4>
-                  <u id="eventTitle">{nextEvent.titleEsp}</u>
-                </h4>
-              </span>
+              nextEvent && nextEventDOW ? (
+                <span className={styles.nextEvent}>
+                  <h3 id="nextEventHeader">el próximo evento</h3>
+                  <div className={styles.datebook} id="datebook">
+                    <strong id="datebookMonth">
+                      {spanishMonths[format(currentMonth, 'MMMM')]}
+                    </strong>
+                    <span style={{ color: 'var(--dark-gray)' }}>
+                      {nextEventDay}
+                    </span>
+                    <span className={styles.dayString} id="datebookDay">
+                      <span>{spanishDays[nextEventDOW.join('')]}</span>
+                    </span>
+                  </div>
+                  <h4>
+                    <u id="eventTitle">{nextEvent.titleEsp}</u>
+                  </h4>
+                </span>
+              ) : null
             }
             id={nextEvent.id}
             title={nextEvent.titleEsp}

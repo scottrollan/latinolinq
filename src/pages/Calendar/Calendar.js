@@ -277,22 +277,24 @@ const Calendar = () => {
           <NextEventModal
             id={nextEvent.id}
             text={
-              <div className={styles.nextEvent}>
-                <h3>Next Event</h3>
-                <div className={styles.datebook}>
-                  <strong>{nextEventMonth}</strong>
-                  <span className={styles.dayString}>
-                    {nextEventDOW.map((l, index) => {
-                      return <span key={`${l}${index}`}>{l}</span>;
-                    })}
-                  </span>
-                  <span>{nextEventDay}</span>
+              nextEvent && nextEventDOW ? (
+                <div className={styles.nextEvent}>
+                  <h3>Next Event</h3>
+                  <div className={styles.datebook}>
+                    <strong>{nextEventMonth}</strong>
+                    <span className={styles.dayString}>
+                      {nextEventDOW.map((l, index) => {
+                        return <span key={`${l}${index}`}>{l}</span>;
+                      })}
+                    </span>
+                    <span>{nextEventDay}</span>
+                  </div>
+                  <h4>
+                    <u>{nextEvent.title}</u>
+                  </h4>
+                  <div></div>
                 </div>
-                <h4>
-                  <u>{nextEvent.title}</u>
-                </h4>
-                <div></div>
-              </div>
+              ) : null
             }
             title={nextEvent.title}
             subtitle={nextEvent.subtitle}
