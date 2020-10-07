@@ -9,7 +9,7 @@ import styles from './Newsletter.module.scss';
 
 //latinolinq@gmail.com
 
-const NewsletterEng = (e) => {
+const NewsletterEng = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
@@ -48,8 +48,7 @@ const NewsletterEng = (e) => {
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
-        console.log(error);
-        alert(status);
+        console.log(status, error);
       });
     e.preventDefault();
   };
@@ -85,7 +84,7 @@ const NewsletterEng = (e) => {
                 type="text"
                 name="name"
                 value={name}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <Form.Label>Email address</Form.Label>
@@ -93,7 +92,7 @@ const NewsletterEng = (e) => {
                 type="email"
                 name="email"
                 value={email}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <Form.Text className="text-muted">

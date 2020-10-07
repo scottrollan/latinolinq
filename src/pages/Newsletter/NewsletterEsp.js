@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap';
 import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
 
-const NewsletterEng = (e) => {
+const NewsletterEsp = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ const NewsletterEng = (e) => {
     return formData;
   };
 
-  const signUpNewsletter = () => {
+  const signUpNewsletter = (e) => {
     const data = {
       'form-name': 'newsletter',
       name,
@@ -70,7 +70,7 @@ const NewsletterEng = (e) => {
       <div className={styles.columns}>
         <div className={styles.column1}>
           <h1>Newsletter Sign-up</h1>
-          <Form onSubmit={signUpNewsletter}>
+          <Form onSubmit={(e) => signUpNewsletter(e)}>
             <Form.Group controlId="formBasicEmail">
               <input type="hidden" name="form-name" value="newsletter" />
               <input
@@ -83,7 +83,7 @@ const NewsletterEng = (e) => {
                 type="text"
                 name="name"
                 value={name}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <Form.Label>Dirección de correo electrónico</Form.Label>
@@ -91,7 +91,7 @@ const NewsletterEng = (e) => {
                 type="email"
                 name="email"
                 value={email}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <Form.Text className="text-muted">
@@ -112,4 +112,4 @@ const NewsletterEng = (e) => {
   );
 };
 
-export default NewsletterEng;
+export default NewsletterEsp;
