@@ -11,9 +11,7 @@ const NewsletterEsp = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(
-    'por favor suscríbeme al Boletín Latino Linq'
-  );
+  const [message, setMessage] = useState('');
 
   const encode = (data) => {
     const formData = new FormData();
@@ -28,7 +26,7 @@ const NewsletterEsp = () => {
       'form-name': 'newsletter',
       name,
       email,
-      message,
+      message: 'por favor suscríbeme al Boletín Latino Linq',
     };
 
     fetch('/', {

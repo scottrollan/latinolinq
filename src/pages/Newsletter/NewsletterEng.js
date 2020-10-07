@@ -13,9 +13,7 @@ const NewsletterEng = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(
-    'lease sign me up for the Latino Linq Newsletter'
-  );
+  const [message, setMessage] = useState('');
 
   const encode = (data) => {
     const formData = new FormData();
@@ -30,7 +28,7 @@ const NewsletterEng = () => {
       'form-name': 'newsletter',
       name,
       email,
-      message,
+      message: 'please sign me up for the Latino Linq Newsletter',
     };
 
     fetch('/', {
