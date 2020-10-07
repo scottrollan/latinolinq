@@ -77,7 +77,7 @@ const ContactEsp = () => {
         id="contactForm"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <AlertMessageSent />
+        <AlertMessageSent message={status} />
         <h1>Contáctanos</h1>
         <Form.Control
           type="text"

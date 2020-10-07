@@ -40,8 +40,7 @@ const ContactEng = () => {
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
-        console.log(error);
-        alert(status);
+        console.log(status, error);
       });
 
     e.preventDefault();
@@ -77,7 +76,7 @@ const ContactEng = () => {
         id="contactForm"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <AlertMessageSent />
+        <AlertMessageSent message={status} />
         <h1>Contact Us</h1>
         <Form.Control
           type="text"

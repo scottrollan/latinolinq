@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
+import AlertMessageSentEsp from '../../components/AlertMessageSentEsp';
 import Footer from '../../components/Footer';
 import $ from 'jquery';
 import { Form, Button } from 'react-bootstrap';
@@ -11,7 +12,6 @@ const NewsletterEsp = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
   const encode = (data) => {
     const formData = new FormData();
@@ -34,13 +34,13 @@ const NewsletterEsp = () => {
       body: encode(data),
     })
       .then(() => {
-        setStatus('Form Submission Successful!');
-        $('#alertMessageSent').css('display', 'flex');
-        $('#alertMessageSent').delay(1500).fadeOut(1000);
+        setStatus('¡El formulario fue enviado!');
+        $('#alertMessageSentEsp').css('display', 'flex');
+        $('#alertMessageSentEsp').delay(1500).fadeOut(1000);
         setName('');
         setEmail('');
-        setMessage('');
-        $('#contactForm')[0].reset();
+
+        $('#newsletterEsp')[0].reset();
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
@@ -61,14 +61,15 @@ const NewsletterEsp = () => {
   };
   return (
     <div className={styles.newsletter}>
+      <AlertMessageSentEsp message={status} />
       <NavBar />
-      <Link to="/NewsletterEsp" className={styles.translate}>
-        <em className={styles.translate}>ver esta página en español</em>
+      <Link to="/NewsletterEng" className={styles.translate}>
+        <em className={styles.translate}>see this page in English</em>
       </Link>
       <div className={styles.columns}>
         <div className={styles.column1}>
-          <h1>Newsletter Sign-up</h1>
-          <Form onSubmit={(e) => signUpNewsletter(e)}>
+          <h1>Inscríbase al boletín</h1>
+          <Form onSubmit={(e) => signUpNewsletter(e)} id="newsletterEsp">
             <Form.Group controlId="formBasicEmail">
               <input type="hidden" name="form-name" value="newsletter" />
               <input

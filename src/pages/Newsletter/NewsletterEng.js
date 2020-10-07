@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
+import AlertMessageSentEng from '../../components/AlertMessageSentEng';
 import Footer from '../../components/Footer';
 import $ from 'jquery';
 import { Form, Button } from 'react-bootstrap';
@@ -13,7 +14,6 @@ const NewsletterEng = () => {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
   const encode = (data) => {
     const formData = new FormData();
@@ -41,8 +41,7 @@ const NewsletterEng = () => {
         $('#alertMessageSent').delay(1500).fadeOut(1000);
         setName('');
         setEmail('');
-        setMessage('');
-        $('#contactForm')[0].reset();
+        $('#newsletterEng')[0].reset();
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
@@ -62,6 +61,7 @@ const NewsletterEng = () => {
   };
   return (
     <div className={styles.newsletter}>
+      <AlertMessageSentEng message={status} />
       <NavBar />
       <Link to="/NewsletterEsp" className={styles.translate}>
         <em className={styles.translate}>ver esta página en español</em>
@@ -69,7 +69,7 @@ const NewsletterEng = () => {
       <div className={styles.columns}>
         <div className={styles.column1}>
           <h1>Newsletter Sign-up</h1>
-          <Form onSubmit={signUpNewsletter}>
+          <Form onSubmit={signUpNewsletter} id="newsletterEng">
             <Form.Group controlId="formBasicEmail">
               <input type="hidden" name="form-name" value="newsletter" />
               <input
@@ -80,6 +80,7 @@ const NewsletterEng = () => {
               <Form.Label>Full Name</Form.Label>
               <Form.Control
                 type="text"
+                // id="name"
                 name="name"
                 value={name}
                 onChange={(e) => handleChange(e)}
@@ -88,6 +89,7 @@ const NewsletterEng = () => {
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
+                // id="email"
                 name="email"
                 value={email}
                 onChange={(e) => handleChange(e)}
