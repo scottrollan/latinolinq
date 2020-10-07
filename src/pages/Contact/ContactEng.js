@@ -30,7 +30,7 @@ const ContactEng = () => {
       body: encode(data),
     })
       .then(() => {
-        setStatus('Form Submission Successful!!');
+        setStatus('Thanks for signing up for our newsletter!');
         $('#alertMessageSent').css('display', 'flex');
         $('#alertMessageSent').delay(1500).fadeOut(1000);
         setName('');

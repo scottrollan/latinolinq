@@ -74,6 +74,11 @@ const NewsletterEsp = () => {
               <input type="hidden" name="form-name" value="newsletter" />
               <input
                 type="hidden"
+                name="email"
+                value="por favor suscríbeme al Boletín Latino Linq"
+              />
+              <input
+                type="hidden"
                 name="message"
                 value="Please add me to your newsletter"
               />

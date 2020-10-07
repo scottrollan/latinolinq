@@ -30,7 +30,7 @@ const ContactEsp = () => {
       body: encode(data),
     })
       .then(() => {
-        setStatus('Form Submission Successful!!');
+        setStatus('¡Gracias por suscribirte a nuestro boletín!');
         $('#alertMessageSentEsp').css('display', 'flex');
         $('#alertMessageSentEsp').delay(1500).fadeOut(1000);
         setName('');
@@ -40,8 +40,7 @@ const ContactEsp = () => {
       })
       .catch((error) => {
         setStatus('Form Submission Failed!');
-        console.log(error);
-        alert(status);
+        console.log(status, error);
       });
 
     e.preventDefault();
