@@ -6,32 +6,63 @@ import { Form, Button } from 'react-bootstrap';
 import RaisedHands from '../../assets/02.jpg';
 import styles from './Newsletter.module.scss';
 
-const NewsletterEsp = () => {
+const NewsletterEng = (e) => {
   const signUpNewsletter = () => {
-    //hit chimpmail
+    const data = {
+      'form-name': 'newsletter',
+      name,
+      email,
+      message: 'por favor suscríbeme al Boletín Latino Linq',
+    };
+
+    fetch('/', {
+      method: 'POST',
+      body: encode(data),
+    })
+      .then(() => {
+        setStatus('Form Submission Successful!');
+        $('#alertMessageSent').css('display', 'flex');
+        $('#alertMessageSent').delay(1500).fadeOut(1000);
+        setName('');
+        setEmail('');
+        setMessage('');
+        $('#contactForm')[0].reset();
+      })
+      .catch((error) => {
+        setStatus('Form Submission Failed!');
+        console.log(error);
+        alert(status);
+      });
+    e.preventDefault();
   };
 
   return (
     <div className={styles.newsletter}>
       <NavBar />
-      <Link to="/NewsletterEng" className={styles.translate}>
-        <em className={styles.translate}>see this page in English</em>
+      <Link to="/NewsletterEsp" className={styles.translate}>
+        <em className={styles.translate}>ver esta página en español</em>
       </Link>
       <div className={styles.columns}>
         <div className={styles.column1}>
-          <h1>Suscríbase al Boletín</h1>
+          <h1>Newsletter Sign-up</h1>
           <Form onSubmit={signUpNewsletter}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Nombre y Apellido *</Form.Label>
-              <Form.Control type="text" required />
-              <Form.Label>Correo Electrónico *</Form.Label>
-              <Form.Control type="email" required />
+              <input type="hidden" name="form-name" value="newsletter" />
+              <input
+                type="hidden"
+                name="message"
+                value="Please add me to your newsletter"
+              />
+              <Form.Label>Nombre y apellido</Form.Label>
+              <Form.Control type="text" name="name" required />
+              <Form.Label>Dirección de correo electrónico</Form.Label>
+              <Form.Control type="email" name="email" required />
               <Form.Text className="text-muted">
-                Nunca compartiremos su dirección de correo electrónico
+                Nunca compartiremos su correo electrónico con nadie más.{' '}
               </Form.Text>
             </Form.Group>
             <Button className={styles.submit} type="submit">
-              Suscríbase
+              Regístrate
             </Button>
           </Form>
         </div>
@@ -44,4 +75,4 @@ const NewsletterEsp = () => {
   );
 };
 
-export default NewsletterEsp;
+export default NewsletterEng;

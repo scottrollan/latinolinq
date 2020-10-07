@@ -8,7 +8,12 @@ import styles from './Newsletter.module.scss';
 
 const NewsletterEng = (e) => {
   const signUpNewsletter = () => {
-    const data = { 'form-name': 'newsletter', name, email, message };
+    const data = {
+      'form-name': 'newsletter',
+      name,
+      email,
+      message: 'please sign me up for the Latino Linq Newsletter',
+    };
 
     fetch('/', {
       method: 'POST',
