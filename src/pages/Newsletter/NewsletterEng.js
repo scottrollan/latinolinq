@@ -23,7 +23,7 @@ const NewsletterEng = () => {
     return formData;
   };
 
-  const signUpNewsletter = () => {
+  const signUpNewsletter = (e) => {
     const data = {
       'form-name': 'newsletter',
       name,
