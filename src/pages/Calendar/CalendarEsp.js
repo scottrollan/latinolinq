@@ -92,14 +92,16 @@ const Calendar = () => {
     let days = [];
     let day = startDate; // 'Fri Aug 07 2020 .....'
     let formattedDate = ''; // '7'
-    let ref; // '1597291200000' (day.getTime())
+    // let ref; // '1597291200000' (day.getTime())
+    // let ev;
     while (day <= endDate) {
-      let ev = '';
       for (let i = 0; i < 7; i++) {
         //collect 7 days to make a week
+        let ref;
+        let ev;
         formattedDate = format(day, dateFormat);
         ref = day.getTime();
-        events.map((r) => {
+        events.forEach((r) => {
           const eventDate = new Date(r.start);
           const month = eventDate.getMonth();
           const dow = eventDate.getDate();
