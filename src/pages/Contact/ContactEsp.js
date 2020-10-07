@@ -30,7 +30,7 @@ const ContactEsp = () => {
       body: encode(data),
     })
       .then(() => {
-        setStatus('¡Gracias por suscribirte a nuestro boletín!');
+        setStatus('¡Mensaje enviado!');
         $('#alertMessageSentEsp').css('display', 'flex');
         $('#alertMessageSentEsp').delay(1500).fadeOut(1000);
         setName('');

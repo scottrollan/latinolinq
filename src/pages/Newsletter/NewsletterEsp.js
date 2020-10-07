@@ -34,7 +34,7 @@ const NewsletterEsp = () => {
       body: encode(data),
     })
       .then(() => {
-        setStatus('¡El formulario fue enviado!');
+        setStatus('¡Gracias por suscribirse a nuestro boletín!');
         $('#alertMessageSentEsp').css('display', 'flex');
         $('#alertMessageSentEsp').delay(1500).fadeOut(1000);
         setName('');
