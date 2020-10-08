@@ -72,9 +72,9 @@ header #logo {
   line-height: 1;
 }
 
-header #logo .icon {
-  padding-right: 0.25em;
-}
+// header #logo .icon {
+//   padding-right: 0.25em;
+// }
 
 /* GRID */
 
@@ -167,13 +167,13 @@ header #logo .icon {
   color: var(--linq-green);
 }
 
-.cal .header .icon:first-of-type {
-  margin-left: 1em;
-}
+// .cal .header .icon:first-of-type {
+//   margin-left: 1em;
+// }
 
-.cal .header .icon:last-of-type {
-  margin-right: 1em;
-}
+// .cal .header .icon:last-of-type {
+//   margin-right: 1em;
+// }
 
 button {
   color: var(--text-color);
@@ -343,6 +343,8 @@ button:hover {
 }
 .nextEvent {
   text-align: center;
+  width: 100%;
+  margin: 0;
 }
 .nextEventsList {
   width: 100%;
@@ -359,7 +361,7 @@ button:hover {
 }
 .eventInfoWrapper {
   width: 70%;
-  margin: 0 2.5%;
+  // margin: 0 2.5%;
   flex-grow: 2;
 }
 
@@ -374,7 +376,10 @@ button:hover {
 @media screen and (max-width: $breakpoint-medium) {
   .calWrapper {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
   .cal,
   .nextEvent {
     align-self: center;

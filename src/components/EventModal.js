@@ -67,7 +67,7 @@ const EventModal = ({
                 display: !link2D ? 'none' : 'inherit',
                 height: '1px',
                 borderTop: '1px green solid',
-                margin: '3px 0',
+                // margin: '3px 0',
               }}
             ></div>
             <span
