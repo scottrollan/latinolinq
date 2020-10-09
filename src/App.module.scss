@@ -41,7 +41,7 @@ em {
   justify-content: center;
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-medium) {
-      font-size: x-large;
+      font-size: large;
     }
   }
 }

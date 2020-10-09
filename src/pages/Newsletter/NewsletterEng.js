@@ -72,15 +72,15 @@ const NewsletterEng = () => {
           <Form onSubmit={signUpNewsletter} id="newsletterEng">
             <Form.Group controlId="formBasicEmail">
               <input type="hidden" name="form-name" value="newsletter" />
-              <input
+              {/* <input
                 type="hidden"
                 name="email"
                 value="please sign me up for the Latino Linq Newsletter"
-              />
+              /> */}
               <input
                 type="hidden"
                 name="message"
-                value="Please add me to your newsletter"
+                value="please sign me up for the Latino Linq Newsletter"
               />
               <Form.Label>Full Name</Form.Label>
               <Form.Control
