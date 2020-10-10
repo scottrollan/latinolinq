@@ -31,7 +31,7 @@ const EventModal = ({
 
   return (
     <div className="eventModal">
-      <Button className={styles.modalButton} onClick={handleShow}>
+      <Button className={styles.modalButton} onClick={handleShow} title={title}>
         {text}
       </Button>
       <Modal show={show} onHide={handleClose}>

@@ -122,7 +122,7 @@ const Calendar = () => {
                   }}
                 ></div>
                 <EventModal
-                  text={r.title}
+                  text={startTime}
                   id={r.id}
                   title={r.title}
                   subtitle={r.subtitle}

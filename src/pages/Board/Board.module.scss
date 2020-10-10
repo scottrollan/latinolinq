@@ -27,6 +27,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: $breakpoint-medium) {
+    padding: 1.5rem;
+  }
 }
 .person h3 {
   align-self: flex-start;

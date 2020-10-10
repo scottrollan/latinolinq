@@ -98,7 +98,7 @@ const Calendar = () => {
       for (let i = 0; i < 7; i++) {
         //collect 7 days to make a week
         let ref;
-        let ev;
+        let ev = '';
         formattedDate = format(day, dateFormat);
         ref = day.getTime();
         events.forEach((r) => {
@@ -126,7 +126,11 @@ const Calendar = () => {
                   }}
                 ></div>
                 <EventModal
-                  text={r.titleEsp}
+                  // text={r.titleEsp}
+                  text={`${new Date(r.start).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}`}
                   id={r.id}
                   title={r.titleEsp}
                   subtitle={r.subtitleEsp}
