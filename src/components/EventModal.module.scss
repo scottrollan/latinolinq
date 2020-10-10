@@ -1,6 +1,7 @@
 @import '../styles/custom-properties.scss';
 @import '../styles/custom-media.scss';
 
+.mobileModalButton,
 .modalButton {
   background-color: transparent;
   border: none;
@@ -17,10 +18,9 @@
     color: var(--white);
   }
 }
+
 .mImage {
-  float: right;
-  height: 5rem;
-  width: auto;
+  width: 100%;
 }
 .mFooter {
   display: flex;

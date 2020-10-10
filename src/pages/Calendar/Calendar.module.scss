@@ -339,7 +339,12 @@ button:hover {
   flex-wrap: nowrap;
   justify-content: center;
   color: var(--linq-green);
-  // padding: 0 0 0.5rem 0;
+}
+.nextEventDiv {
+  max-width: 20%;
+  @media screen and (max-width: $breakpoint-large) {
+    display: none;
+  }
 }
 .nextEvent {
   text-align: center;
@@ -350,10 +355,11 @@ button:hover {
   width: 100%;
   padding: 2rem;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
 }
 .eventPicWrapper {
   width: 15%;
+  margin-right: 1rem;
   flex-grow: 1;
 }
 .eventPic {
@@ -361,7 +367,6 @@ button:hover {
 }
 .eventInfoWrapper {
   width: 70%;
-  // margin: 0 2.5%;
   flex-grow: 2;
 }
 
@@ -373,7 +378,7 @@ button:hover {
   }
 }
 
-@media screen and (max-width: $breakpoint-medium) {
+@media screen and (max-width: $breakpoint-large) {
   .calWrapper {
     flex-direction: column;
     justify-content: center;

@@ -114,7 +114,7 @@ const Calendar = () => {
                   style={{
                     position: 'absolute',
                     width: '100%',
-                    height: '50%',
+                    height: '30%',
                     borderBottom: '2px solid var(--white)',
                     transform: 'rotate(-15deg) translateX(-2px)',
                     transformOrigin: 'center center',
@@ -270,17 +270,7 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginLeft: '0.5rem',
-            display: nextEvent !== {} ? 'inherit' : 'none',
-          }}
-          id="nextEvent"
-        >
+        <div className={styles.nextEventDiv} id="nextEvent">
           <NextEventModal
             id={nextEvent.id}
             text={

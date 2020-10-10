@@ -126,7 +126,6 @@ const Calendar = () => {
                   }}
                 ></div>
                 <EventModal
-                  // text={r.titleEsp}
                   text={`${new Date(r.start).toLocaleTimeString([], {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -281,10 +280,7 @@ const Calendar = () => {
           </div>
           {renderCells(currentMonth)}
         </div>
-        <div
-          style={{ maxWidth: '80%', display: 'flex', flexDirection: 'column' }}
-          id="nextEvent"
-        >
+        <div className={styles.nextEventDiv} id="nextEvent">
           <NextEventModal
             text={
               nextEvent && nextEventDOW ? (

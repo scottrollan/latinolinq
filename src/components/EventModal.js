@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import $ from 'jquery';
+import MediaQuery from 'react-responsive';
 import styles from './EventModal.module.scss';
 
 const EventModal = ({
@@ -29,23 +30,52 @@ const EventModal = ({
     $('html').css('overflow-y', 'hidden');
   };
 
+  const shortTime = text.toString().slice(0, -3);
   return (
     <div className="eventModal">
-      <Button className={styles.modalButton} onClick={handleShow} title={title}>
-        {text}
-      </Button>
+      <MediaQuery minDeviceWidth={1224}>
+        <Button
+          className={styles.modalButton}
+          onClick={handleShow}
+          title={title}
+        >
+          {text}
+        </Button>
+      </MediaQuery>
+      <MediaQuery maxDeviceWidth={1224}>
+        <Button
+          className={styles.mobileModalButton}
+          onClick={handleShow}
+          title={title}
+        >
+          {shortTime}
+        </Button>
+      </MediaQuery>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
-          <p as="h5">{subtitle}</p>
-          <p>
-            {date} at {startTime}
-          </p>
-          <img src={src} alt="" className={styles.mImage} />
-          <p>{description}</p>
+        <Modal.Body
+          style={{ display: 'flex', justifyContent: 'space-between' }}
+        >
+          <div>
+            <p as="h5">{subtitle}</p>
+            <p>
+              {date} at {startTime}
+            </p>
+            <p>{description}</p>
+          </div>
+          <div
+            style={{
+              width: '20%',
+              alignSelf: 'stretch',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img src={src} alt="" className={styles.mImage} />
+          </div>
         </Modal.Body>
 
         <Modal.Footer className={styles.mFooter}>
