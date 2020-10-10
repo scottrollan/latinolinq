@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchServices, Client } from '../../api/client';
+import { Client } from '../../api/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
@@ -17,7 +17,9 @@ const ServicesEng = () => {
 
   const fetchData = async () => {
     let theseServices = [];
-    const service = await fetchServices;
+    const service = await Client.fetch(
+      "*[_type == 'service'] | order(displayOrder)"
+    );
 
     service.forEach((s) => {
       const imageObj = s.serviceImage;
