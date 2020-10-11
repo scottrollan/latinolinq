@@ -17,7 +17,7 @@ const ServicesEng = () => {
 
   const fetchData = async () => {
     let theseServices = [];
-    const service = await fetchServices();
+    const service = await fetchServices;
 
     service.forEach((s) => {
       const imageObj = s.serviceImage;
