@@ -221,7 +221,7 @@ const Calendar = () => {
         title: e.title,
         titleEsp: e.titleEsp,
         subtitle: e.subtitle,
-        subtitleEsp: e.subtitulo,
+        subtitleEsp: e.subtitleEsp,
         description: e.description,
         descriptionEsp: e.descriptionEsp,
         link1Description: e.link1Description,

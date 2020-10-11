@@ -66,55 +66,54 @@ const EventModal = ({
             </p>
             <p>{description}</p>
           </div>
-          <div
-            style={{
-              width: '20%',
-              alignSelf: 'stretch',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
+          <div className={styles.mImageDiv}>
             <img src={src} alt="" className={styles.mImage} />
           </div>
         </Modal.Body>
 
         <Modal.Footer className={styles.mFooter}>
           <div>
-            <span
+            <div
               className={styles.footerNotes}
               style={{ display: !link1D ? 'none' : 'inherit' }}
             >
               {link1D}.
               <span style={{ display: !link1 ? 'none' : 'inherit' }}>
-                Find out more{' '}
                 <a href={link1} target="_blank" rel="noopener noreferrer">
-                  &nbsp;here.
+                  <i
+                    className="fas fa-external-link-alt"
+                    style={{ marginBottom: '10px' }}
+                  ></i>
                 </a>
               </span>
-            </span>
+            </div>
             <div
               style={{
                 display: !link2D ? 'none' : 'inherit',
                 height: '1px',
                 borderTop: '1px green solid',
-                // margin: '3px 0',
               }}
             ></div>
-            <span
+            <div
               className={styles.footerNotes}
               style={{
                 display: !link2D ? 'none' : 'inherit',
               }}
             >
               {link2D}
-              <span style={{ display: !link2 ? 'none' : 'inherit' }}>
-                {' '}
-                Find out more{' '}
+              <span
+                style={{
+                  display: !link2 ? 'none' : 'inherit',
+                }}
+              >
                 <a href={link2} target="_blank" rel="noopener noreferrer">
-                  &nbsp;here.
+                  <i
+                    className="fas fa-external-link-alt"
+                    style={{ marginBottom: '10px' }}
+                  ></i>
                 </a>
               </span>
-            </span>
+            </div>
           </div>
           <Button variant="secondary" onClick={handleClose}>
             Close

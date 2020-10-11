@@ -18,7 +18,19 @@
     color: var(--white);
   }
 }
-
+.mobileModalButton {
+  padding: 0;
+  font-size: small;
+}
+.mImageDiv {
+  width: 20%;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: $breakpoint-medium) {
+    display: none;
+  }
+}
 .mImage {
   width: 100%;
 }
@@ -29,4 +41,5 @@
 }
 .footerNotes {
   line-height: 1.2;
+  text-align: center;
 }
