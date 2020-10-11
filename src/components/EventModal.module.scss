@@ -21,6 +21,9 @@
 .mobileModalButton {
   padding: 0;
   font-size: small;
+  @media screen and (max-width: $breakpoint-medium) {
+    font-size: x-small;
+  }
 }
 .mImageDiv {
   width: 20%;

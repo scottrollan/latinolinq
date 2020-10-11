@@ -5,6 +5,7 @@ import NextEventModal from '../../components/NextEventModal';
 import EventModal from '../../components/EventModal';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import MediaQuery from 'react-responsive';
 import {
   format,
   addMonths,
@@ -269,12 +270,24 @@ const Calendar = () => {
               'sábado',
             ].map((ddd) => {
               return (
-                <span
-                  className={[`${styles.col} ${styles.colCenter}`]}
-                  key={ddd}
-                >
-                  {ddd}
-                </span>
+                <>
+                  <MediaQuery minDeviceWidth={1224}>
+                    <span
+                      className={[`${styles.col} ${styles.colCenter}`]}
+                      key={ddd}
+                    >
+                      {ddd}
+                    </span>
+                  </MediaQuery>
+                  <MediaQuery maxDeviceWidth={1224}>
+                    <span
+                      className={[`${styles.col} ${styles.colCenter}`]}
+                      key={ddd}
+                    >
+                      {ddd.substring(0, 2)}
+                    </span>
+                  </MediaQuery>
+                </>
               );
             })}
           </div>
