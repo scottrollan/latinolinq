@@ -15,7 +15,7 @@ const SupportEsp = () => {
         <h1>Haz una donación.</h1>
         <a
           className={styles.donate}
-          href="https://www.paypal.com/fundraiser/charity/1436824"
+          href="https://secure.everyaction.com/JLZYxY_D9kqnTm7ezSa0bA2"
           target="_blank"
           rel="noreferrer noopener"
         >
