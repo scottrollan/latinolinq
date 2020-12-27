@@ -10,17 +10,16 @@ export default function Pledge({ language }) {
   const signerList = thisCampaign.signers ?? [];
   const pledgeLength = signerList.length;
   const [isPledging, setIsPledging] = useState(false);
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [input, setInput] = useState({});
 
-  const pledgeMe = async () => {
+  const pledgeMe = async (e) => {
+    e.preventDefault();
     let updatedList = [...signerList];
     let key = createRandomString(12);
     const newSigner = {
+      ...input,
       _type: 'signer',
       _key: key,
-      email: email,
-      name: name,
       notes: '',
     };
     updatedList = [...updatedList, newSigner];
@@ -31,15 +30,18 @@ export default function Pledge({ language }) {
       name: thisCampaign.name,
       signers: updatedList,
     };
-    console.log(doc);
-    alert('check console for doc');
     let response = await Client.createOrReplace(doc).catch((err) => {
       alert('Oh no, the update failed: ', err.message);
       return;
     });
     console.log(response._updatedAt);
-    alert('check console for response');
   };
+
+  const handleInputChange = (e) =>
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
 
   return (
     <>
@@ -53,23 +55,23 @@ export default function Pledge({ language }) {
         >
           You can count on me to vote in the senate run-off election on January
           5.
-          <Form onSubmit={pledgeMe}>
+          <Form onSubmit={(e) => pledgeMe(e)}>
             <Form.Group controlId="pledgeName">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
+                name="name"
                 placeholder="Enter your full name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={handleInputChange}
               />
             </Form.Group>
             <Form.Group controlId="pledgeEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
+                name="email"
                 placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleInputChange}
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -105,19 +107,19 @@ export default function Pledge({ language }) {
             <Form.Group controlId="pledgeName">
               <Form.Label>Nombre y appellido</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Ingrese su nombre completo"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                type="name"
+                name="name"
+                placeholder="Nombre y apellido"
+                onChange={handleInputChange}
               />
             </Form.Group>
             <Form.Group controlId="pledgeEmail">
               <Form.Label>Dirección de correo electrónico</Form.Label>
               <Form.Control
                 type="email"
+                name="email"
                 placeholder="Ingrese su dirección de correo electrónico"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleInputChange}
               />
               <Form.Text className="text-muted">
                 Nunca compartiremos su correo electrónico con nadie más.
