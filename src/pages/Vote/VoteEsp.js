@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { fetchPledges } from '../../api/client';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import Pledge from './Pledge';
-import AlertMessageSentEng from '../../components/AlertMessageSentEng';
 import Footer from '../../components/Footer';
-import $ from 'jquery';
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import voteImage from '../../assets/handsAndLogo.jpg';
 import styles from './Vote.module.scss';
 
 const VoteEsp = () => {
   return (
     <div className={styles.vote}>
-      {/* <AlertMessageSentEng message={status} /> */}
       <NavBar />
       <div className={styles.stripe}>
         <h1>¡que vayan a votar!</h1>
@@ -25,7 +21,6 @@ const VoteEsp = () => {
       <div className={styles.column}>
         <div className={styles.titleBold}>Fecha importante: 5 de enero</div>
         <div className={styles.title}>¡2 asientos del Senado!</div>
-        {/* <div className={styles.title}>verifique donde ir a votar</div> */}
         <Button
           className={styles.green}
           href="https://www.mvp.sos.ga.gov/MVP/mvp.do"

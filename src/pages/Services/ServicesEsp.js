@@ -7,33 +7,31 @@ import Footer from '../../components/Footer';
 import styles from './Services.module.scss';
 
 const ServicesEng = () => {
-  const builder = imageUrlBuilder(Client);
-
-  const urlFor = (source) => {
-    return builder.image(source);
-  };
-
   const [services, setServices] = useState([]);
 
-  const fetchData = async () => {
-    let theseServices = [];
-    const service = await fetchServices;
-
-    service.forEach((s) => {
-      const imageObj = s.serviceImage;
-      const imageUrl = urlFor(imageObj).url().toString();
-      let currentService = {
-        id: s._id,
-        description: s.descriptionEsp,
-        title: s.titleEsp,
-        src: imageUrl,
-      };
-      theseServices.push(currentService);
-    });
-    setServices(theseServices);
-  };
-
   useEffect(() => {
+    const builder = imageUrlBuilder(Client);
+
+    const urlFor = (source) => {
+      return builder.image(source);
+    };
+    const fetchData = async () => {
+      let theseServices = [];
+      const service = await fetchServices;
+
+      service.forEach((s) => {
+        const imageObj = s.serviceImage;
+        const imageUrl = urlFor(imageObj).url().toString();
+        let currentService = {
+          id: s._id,
+          description: s.descriptionEsp,
+          title: s.titleEsp,
+          src: imageUrl,
+        };
+        theseServices.push(currentService);
+      });
+      setServices(theseServices);
+    };
     fetchData();
   }, []);
 

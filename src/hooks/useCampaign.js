@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { fetchPledges } from '../api/client';
 
 const useCampaign = () => {
-  const [campaign, setCampaign] = useState('');
+  const [campaign, setCampaign] = React.useState('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     let thisCampaign;
     const getCampaign = async () => {
       try {

@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { fetchPledges } from '../../api/client';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import Pledge from './Pledge';
-// import AlertMessageSentEng from '../../components/AlertMessageSentEng';
 import Footer from '../../components/Footer';
-import $ from 'jquery';
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import voteImage from '../../assets/handsAndLogo.jpg';
 import styles from './Vote.module.scss';
 
 const VoteEng = () => {
   return (
     <div className={styles.vote}>
-      {/* <AlertMessageSentEng message={status} /> */}
       <NavBar />
       <div className={styles.stripe}>
         <h1>Get Out the Vote!</h1>
