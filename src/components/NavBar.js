@@ -46,12 +46,12 @@ const NavBar = () => {
             >
               Servicios
             </Link>
-            <Link
+            {/* <Link
               to="/CalendarEsp"
               className={[`dropdown-item ${styles.toRight}`]}
-            >
-              Calendario
-            </Link>
+            > */}
+            {/* Calendario
+            </Link> */}
             <Link
               to="/NewsletterEsp"
               className={[`dropdown-item ${styles.toRight}`]}
@@ -82,6 +82,9 @@ const NavBar = () => {
             >
               Recursos
             </Link>
+            <Link to="/VoteEsp" className={[`dropdown-item ${styles.toRight}`]}>
+              <span style={{ color: 'var(--linq-green' }}>VOTO</span>
+            </Link>
           </NavDropdown>
           <NavDropdown
             title="English"
@@ -103,12 +106,12 @@ const NavBar = () => {
             >
               Services
             </Link>
-            <Link
+            {/* <Link
               to="/Calendar"
               className={[`dropdown-item ${styles.toRight}`]}
             >
               Calendar
-            </Link>
+            </Link> */}
             <Link
               to="/NewsletterEng"
               className={[`dropdown-item ${styles.toRight}`]}
@@ -133,11 +136,15 @@ const NavBar = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/ResourcesEng"
-              className={[`dropdown-item ${styles.toRight}`]}
-            >
-              Resources
+            <Link to="/VoteEng" className={[`dropdown-item ${styles.toRight}`]}>
+              <span
+                style={{
+                  color: 'var(--linq-green)',
+                  textDecoration: 'underline',
+                }}
+              >
+                GET OUT THE VOTE
+              </span>
             </Link>
           </NavDropdown>
           <a

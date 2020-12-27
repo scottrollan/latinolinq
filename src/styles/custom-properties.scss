@@ -9,6 +9,7 @@
 }
 :root {
   /* Colors */
+  --black: #212122;
   --white: #ffffff;
   --lightest-gray: #f3f5f7;
   --light-gray: #c3c3c3;
@@ -40,16 +41,17 @@
     transition: all 0.3s ease-in-out;
   }
 }
-@mixin darkButton {
-  background-color: transparent;
-  color: var(--dark-button);
+@mixin greenButton {
+  background-color: var(--linq-green);
+  color: var(--black);
   font-size: x-large;
   padding: 1rem 2rem;
-  border: 2px solid var(--dark-button);
+  border: 2px solid var(--linq-green);
   border-radius: 2rem;
   &:hover {
-    background-color: var(--dark-button);
-    color: var(--light-button);
+    background-color: var(--light-button);
+    border: 2px solid var(--light-button);
+    color: var(--black);
     transition: all 0.3s ease-in-out;
   }
 }
