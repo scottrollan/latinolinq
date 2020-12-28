@@ -95,7 +95,14 @@ export default function Pledge({ language }) {
             </Button>
           </Form>
         </div>
-        <div style={{ display: isPledging || pledged ? 'none' : 'block' }}>
+        <div
+          style={{
+            display: isPledging || pledged ? 'none' : 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <div className={styles.title}>
             {/* Join{' '}
             <span style={{ color: 'var(--linq-green)' }}>{pledgeLength}</span>{' '}
@@ -161,7 +168,14 @@ export default function Pledge({ language }) {
             </Button>
           </Form>
         </div>
-        <div style={{ display: isPledging || pledged ? 'none' : 'block' }}>
+        <div
+          style={{
+            display: isPledging || pledged ? 'none' : 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <div className={styles.title}>
             {/* Únete a otrxs
             <span style={{ color: 'var(--linq-green)' }}>{pledgeLength}</span> y
