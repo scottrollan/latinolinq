@@ -138,7 +138,7 @@ const NavBar = () => {
             >
               Contact
             </Link>
-            <Link to="/VoteEng" className={[`dropdown-item ${styles.toRight}`]}>
+            <Link to="/Vote" className={[`dropdown-item ${styles.toRight}`]}>
               <span
                 style={{
                   color: 'var(--linq-green)',
