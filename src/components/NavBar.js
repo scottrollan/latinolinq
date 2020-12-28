@@ -82,8 +82,10 @@ const NavBar = () => {
             >
               Recursos
             </Link>
-            <Link to="/VoteEsp" className={[`dropdown-item ${styles.toRight}`]}>
-              <span style={{ color: 'var(--linq-green' }}>VOTO</span>
+            <Link to="/Vota" className={[`dropdown-item ${styles.toRight}`]}>
+              <span style={{ color: 'var(--linq-green' }}>
+                Recursos para Votar
+              </span>
             </Link>
           </NavDropdown>
           <NavDropdown
@@ -143,7 +145,7 @@ const NavBar = () => {
                   textDecoration: 'underline',
                 }}
               >
-                GET OUT THE VOTE
+                Voting Resources
               </span>
             </Link>
           </NavDropdown>

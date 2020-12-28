@@ -91,18 +91,19 @@ export default function Pledge({ language }) {
               </Form.Text>
             </Form.Group>
             <Button className={styles.green} type="submit">
-              Pledge to Vote
+              Pledge To Vote
             </Button>
           </Form>
         </div>
         <div style={{ display: isPledging || pledged ? 'none' : 'block' }}>
           <div className={styles.title}>
-            Join{' '}
+            {/* Join{' '}
             <span style={{ color: 'var(--linq-green)' }}>{pledgeLength}</span>{' '}
-            others and...
+            others and... */}
+            Join millions of Georgians who have already voted and
           </div>
           <Button className={styles.green} onClick={() => setIsPledging(true)}>
-            Pledge to Vote
+            Pledge To Vote
           </Button>
         </div>
         <div
@@ -156,18 +157,19 @@ export default function Pledge({ language }) {
               </Form.Text>
             </Form.Group>
             <Button className={styles.green} type="submit">
-              prometa votar
+              Promete Votar Una Vez Más
             </Button>
           </Form>
         </div>
         <div style={{ display: isPledging || pledged ? 'none' : 'block' }}>
           <div className={styles.title}>
-            Únete a otrxs
+            {/* Únete a otrxs
             <span style={{ color: 'var(--linq-green)' }}>{pledgeLength}</span> y
-            ...{' '}
+            ...{' '} */}
+            Únete a millones de Georgianos que ya votaron y
           </div>
           <Button className={styles.green} onClick={() => setIsPledging(true)}>
-            prometa votar
+            Promete Votar Una Vez Más
           </Button>
         </div>
         <div

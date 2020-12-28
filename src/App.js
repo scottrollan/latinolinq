@@ -45,7 +45,7 @@ function App() {
             <Route path="/SupportEng" exact component={SupportEng}></Route>
             <Route path="/ContactEng" exact component={ContactEng}></Route>
             <Route path="/ResourcesEng" exact component={ResourcesEng}></Route>
-            <Route path="/VoteEng" exact component={VoteEng}></Route>
+            <Route path="/Vote" exact component={VoteEng}></Route>
             <Route path="/AboutEsp" exact component={AboutEsp}></Route>
             <Route path="/ServicesEsp" exact component={ServicesEsp}></Route>
             {/* <Route path="/CalendarEsp" exact component={CalendarEsp}></Route> */}
@@ -58,7 +58,7 @@ function App() {
             <Route path="/SupportEsp" exact component={SupportEsp}></Route>
             <Route path="/ContactEsp" exact component={ContactEsp}></Route>
             <Route path="/ResourcesEsp" exact component={ResourcesEsp}></Route>
-            <Route path="/VoteEsp" exact component={VoteEsp}></Route>
+            <Route path="/Vota" exact component={VoteEsp}></Route>
             <Route path="/admin" exact component={Admin}></Route>
           </PledgesContext.Provider>
         </Switch>

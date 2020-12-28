@@ -12,9 +12,9 @@ const VoteEsp = () => {
     <div className={styles.vote}>
       <NavBar />
       <div className={styles.stripe}>
-        <h1>¡que vayan a votar!</h1>
+        <h1>¡Votemos una vez más!</h1>
       </div>
-      <Link to="/VoteEng" className={styles.translate}>
+      <Link to="/Vote" className={styles.translate}>
         <em className={styles.translate}>see this page in English</em>
       </Link>
 
@@ -27,7 +27,7 @@ const VoteEsp = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          verifique donde ir a votar
+          Verifica Donde Ir a Votar
         </Button>
         <div
           className={styles.stripe}
@@ -42,11 +42,11 @@ const VoteEsp = () => {
         <div className={styles.titleBold}>Conozca sus derechos de voto.</div>
         <Button
           className={styles.green}
-          href="https://www.aclu.org/know-your-rights/derecho-al-voto/"
+          href="https://drive.google.com/file/d/1P-nFIZHdKmOZ4LjXET9aZ9Ndp7QGV3Dw/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
         >
-          mis derechos
+          Haz Click Aqui para Bajar un Guia
         </Button>
         <img src={voteImage} alt="" className={styles.image} />
         <Footer />
