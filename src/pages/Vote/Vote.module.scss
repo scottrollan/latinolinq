@@ -12,16 +12,17 @@
 
 .stripe {
   width: 100%;
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--linq-green);
   margin: 1rem 0;
+  padding: 1rem 0.5rem;
 }
 .stripe > * {
   margin: 0;
-  padding: 0.5rem;
+  width: 100%;
   text-align: center;
   color: var(--white);
 }
