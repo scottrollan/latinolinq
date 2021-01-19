@@ -18,9 +18,9 @@ const ServicesEng = () => {
 
     const fetchData = async () => {
       let theseServices = [];
-      const service = await fetchServices;
+      const services = await fetchServices;
 
-      service.forEach((s) => {
+      services.forEach((s) => {
         const imageObj = s.serviceImage;
         const imageUrl = urlFor(imageObj).url().toString();
         let currentService = {
@@ -31,7 +31,7 @@ const ServicesEng = () => {
         };
         theseServices.push(currentService);
       });
-      setServices(theseServices);
+      setServices([...theseServices]);
     };
     fetchData();
   }, []);
@@ -66,7 +66,7 @@ const ServicesEng = () => {
                 {i.description.map((dp) => (
                   <p key={dp._key}>{dp.children[0].text}</p>
                 ))}
-              </div>{' '}
+              </div>
             </div>
           );
         })}
