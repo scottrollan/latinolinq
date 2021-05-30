@@ -82,10 +82,16 @@ const NavBar = () => {
             >
               Recursos
             </Link>
-            <Link to="/Vota" className={[`dropdown-item ${styles.toRight}`]}>
+            {/* <Link to="/Vota" className={[`dropdown-item ${styles.toRight}`]}>
               <span style={{ color: 'var(--linq-green' }}>
                 Recursos para Votar
               </span>
+            </Link> */}
+            <Link
+              to="/LegalAssistanceEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Recursos de Asistencia Legal
             </Link>
           </NavDropdown>
           <NavDropdown
@@ -138,7 +144,13 @@ const NavBar = () => {
             >
               Contact
             </Link>
-            <Link to="/Vote" className={[`dropdown-item ${styles.toRight}`]}>
+            <Link
+              to="/ResourcesEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Resources
+            </Link>
+            {/* <Link to="/Vote" className={[`dropdown-item ${styles.toRight}`]}>
               <span
                 style={{
                   color: 'var(--linq-green)',
@@ -147,6 +159,12 @@ const NavBar = () => {
               >
                 Voting Resources
               </span>
+            </Link> */}
+            <Link
+              to="/LegalAssistanceEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Legal Assistance Resources
             </Link>
           </NavDropdown>
           <a
