@@ -68,6 +68,7 @@
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: center center;
+  background-size: contain;
 
   @media screen and (max-width: $breakpoint-medium) {
     width: 90%;
