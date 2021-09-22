@@ -15,7 +15,7 @@ const SupportEng = () => {
         <h1>Make a Donation</h1>
         <a
           className={styles.donate}
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KMGG37ER9TU56&source=url"
+          href="https://www.paypal.com/donate/?hosted_button_id=3BCR2WP6GFQV2"
           target="_blank"
           rel="noreferrer noopener"
         >
