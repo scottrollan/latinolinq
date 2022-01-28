@@ -17,9 +17,8 @@ const AboutEng = () => {
           <h1>Our Mission</h1>
 
           <h5>
-            Latino LinQ advances LGBTQ equity by facilitating support services
-            to Latinx LGBTQ people, and their families, in the areas of health
-            care and legal assistance.
+            Increasing equity and promoting wellbeing for Latinx LGBTQ+
+            communities in the South.
           </h5>
 
           <h5>We carry out our mission by:</h5>
@@ -28,7 +27,7 @@ const AboutEng = () => {
             <li>
               Facilitating information, education and training sessions for
               individuals and groups interested in expanding our mission to
-              advance LGBTQ equity
+              advance LGBTQ equity.
             </li>
           </ul>
         </div>
@@ -38,9 +37,9 @@ const AboutEng = () => {
       <div className={styles.section2}>
         <h1>Vision</h1>
         <p style={{ textAlign: 'center' }}>
-          A world in which LGBTQ people from across diverse Latinx communities
-          can live their full lives with dignity, respect, and free from
-          discrimination.{' '}
+          Latino LinQ is a nonprofit organization in Georgia advocating for a
+          world in which Latinx LGTBQ+ individuals and their families can live
+          authentically, with dignity and respect.
         </p>
       </div>
       <div className={styles.section3}>

@@ -17,8 +17,8 @@ const AboutEsp = () => {
           <h1>Nuestra Misión</h1>
 
           <h5>
-            Latino LinQ promueve equidad para la comunidad LGBTQ Latinx, y sus
-            familias en las áreas de cuidado de salud y asistencia legal.
+            Incrementando la equidad y promoviendo el bienestar para las
+            comunidades LGBTQ+ Latines en el Sur.
           </h5>
 
           <h5>Llevamos a cabo nuestra misión:</h5>
@@ -37,9 +37,9 @@ const AboutEsp = () => {
       <div className={styles.section2}>
         <h1>Visión</h1>
         <p style={{ textAlign: 'center' }}>
-          Un mundo donde personas LGBTQ de diversas comunidades Latinx puedan
-          vivir una autentica vida plena con dignidad, respeto, y libre de
-          discriminación.{' '}
+          Latino LinQ es una organización sin fines de lucre en Georgia que
+          aboga por un mundo en el que las personas Latinx LGTBQ+ y sus familias
+          puedan vivir auténticamente, con dignidad y respeto.
         </p>
       </div>
       <div className={styles.section3}>
