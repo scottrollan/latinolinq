@@ -93,6 +93,12 @@ const NavBar = () => {
             >
               Recursos de Asistencia Legal
             </Link>
+            <Link
+              to="/JoinEngEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Únete a Latino LinQ
+            </Link>
           </NavDropdown>
           <NavDropdown
             title="English"
@@ -165,6 +171,12 @@ const NavBar = () => {
               className={[`dropdown-item ${styles.toRight}`]}
             >
               Legal Assistance Resources
+            </Link>
+            <Link
+              to="/JoinEngEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Join Latino LinQ
             </Link>
           </NavDropdown>
           <a

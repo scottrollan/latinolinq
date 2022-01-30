@@ -13,6 +13,7 @@ import ContactEng from './pages/Contact/ContactEng';
 import ResourcesEng from './pages/Resources/ResourcesEng';
 import VoteEng from './pages/Vote/VoteEng';
 import LegalAssistanceEng from './pages/Legal/LegalAssistanceEng';
+import JoinEngEsp from './pages/Join/JoinEngEsp';
 import AboutEsp from './pages/About/AboutEsp';
 import ServicesEsp from './pages/Services/ServicesEsp';
 import NewsletterEsp from './pages/Newsletter/NewsletterEsp';
@@ -53,6 +54,7 @@ function App() {
               exact
               component={LegalAssistanceEng}
             ></Route>
+            <Route path="/JoinEngEsp" exact component={JoinEngEsp}></Route>
             <Route path="/AboutEsp" exact component={AboutEsp}></Route>
             <Route path="/ServicesEsp" exact component={ServicesEsp}></Route>
             {/* <Route path="/CalendarEsp" exact component={CalendarEsp}></Route> */}
