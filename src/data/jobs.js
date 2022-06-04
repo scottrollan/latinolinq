@@ -86,12 +86,12 @@ const jobPosts = [
     ),
   },
   {
-    position: 'Summit Manager',
+    position: 'Part-Time Summit Coordinator',
     details: (
       <div>
         <div>
           <span style={{ textDecoration: 'underline' }}>Posting date:</span>
-          &nbsp;March 14, 2022
+          &nbsp;May 1, 2022
         </div>
         <div>
           <span style={{ textDecoration: 'underline' }}>
@@ -105,7 +105,7 @@ const jobPosts = [
         </div>
         <div style={{ fontStyle: 'italic' }}>
           This is a part-time, temporary position with a flexible work schedule.
-          Summit Manager will dedicate between 8-10 hours per week to this
+          Summit Coordinator will dedicate up to 20 hours per week to this
           project. We expect deliverables to be completed by the end of December
           2022.
         </div>
@@ -122,25 +122,25 @@ const jobPosts = [
         <div>
           <div className={styles.subHeader}>About the position</div>
           <div>
-            We are seeking a Summit Manager for a grant-funded position who is
-            detail-oriented, self-driven, and holds a passion for racial
+            We are seeking a Summit Coordinator for a grant-funded position who
+            is detail-oriented, self-driven, and holds a passion for racial
             justice, HIV prevention, mental and sexual health. This individual
-            will manage the third iteration of Latino LinQ’s LGBTQ Summit. As a
+            will manage the third iteration of Latino LinQ’s LGBTQ+ Summit. As a
             volunteer-led and operated organization, once a year Latino LinQ
-            brings together Georgia's Latinx LGBTQ community for a one day
+            brings together Georgia's Latinx LGBTQ+ community for a one day
             Summit with workshops and speakers on topics impacting our
-            wellbeing. This Summit is the only Latinx LGBTQ-led educational
+            wellbeing. This Summit is the only Latinx LGBTQ+ led educational
             event in Georgia. This year’s Summit will be centered around
-            buildingracial and gender justice and will rely heavily on building
+            building racial and gender justice and will rely heavily on building
             partnerships with Black and Transgender-led organizations in the
             metro-Atlanta region. Alongside the Latino LinQ board, the Summit
-            Manager will plan a convening to build bridges between LGBTQ-Latinx
-            and LGBTQ-Black communities and that strengthen relationships
-            between LGB and Transgender folks. The Latino LinQ board believes
-            that in order to address key issues facing both Black and Latinx
-            LGBTQ individuals (ie. HIV, over-policing, racism, transphobia,
-            inadequate access to vital resources), reconciling our differences
-            and fortifying unity is necessary.
+            Coordinator will plan a convening to build bridges between Latinx
+            LGBTQ+ and Black LGBTQ+ communities that strengthen relationships
+            between LGB+ and Transgender folks. We at Latino LinQ believe that
+            in order to address key issues facing both Black and Latinx LGBTQ+
+            individuals (ie. HIV, over-policing, racism, transphobia, inadequate
+            access to vital resources), reconciling our differences and
+            fortifying unity is necessary.
           </div>
         </div>
         <div>
