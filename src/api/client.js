@@ -19,6 +19,10 @@ export const fetchServices = Client.fetch(
   "*[_type == 'service'] | order(displayOrder)"
 );
 
+export const fetchJobs = Client.fetch(
+  "*[_type == 'job'] | order(displayOrder)"
+);
+
 export const fetchPledges = Client.getDocument(
   '10fa40ab-126b-42de-9f85-d63eae447d2f' //id of Pledge to Vote signup
 );
