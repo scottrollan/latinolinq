@@ -1,7 +1,7 @@
 export default {
   name: 'job',
   type: 'document',
-  title: 'Position',
+  title: 'Jobs',
   fields: [
     {
       name: 'jobTitle',
@@ -17,6 +17,11 @@ export default {
       name: 'active',
       title: 'Is this job still open?',
       type: 'boolean',
+    },
+    {
+      name: 'displayOrder',
+      title: 'Order of Appearance',
+      type: 'number',
     },
   ],
 };

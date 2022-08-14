@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-import jobPosts from '../../data/jobs';
+import { fetchJobs } from '../../api/client';
+import parse from 'html-react-parser';
 import { Button } from 'react-bootstrap';
 import { createRandomString } from '../../functions/CreateRandomString';
 import styles from './Join.module.scss';
 
 export default function JoinEngEsp() {
+  const [jobs, setJobs] = useState([]);
+
+  const fetchOpenJobs = async () => {
+    let openJobs = [];
+    const allJobs = await fetchJobs;
+
+    allJobs.forEach((j) => {
+      let currentJob = {
+        title: j.jobTitle,
+        description: parse(j.jobDescription),
+        active: j.active,
+      };
+      if (currentJob.active) {
+        openJobs.push(currentJob);
+      }
+    });
+    setJobs(openJobs);
+  };
+
+  useEffect(() => {
+    fetchOpenJobs();
+  }, []);
   const showMyInfo = (showBtn, details) => {
     window.document
       .getElementById(showBtn)
@@ -33,20 +56,21 @@ export default function JoinEngEsp() {
       <NavBar />
       <h1>Join Latino LinQ / Únete a Latino LinQ</h1>
       <div className={styles.jobList}>
-        {jobPosts.map((j, idx) => {
+        {jobs.map((j, idx) => {
           const keyStr = createRandomString(4);
           return (
             <div
+              key={`${keyStr}${idx}`}
               className={styles.posting}
               style={{
                 borderBottom:
-                  jobPosts.length > 0 && idx < jobPosts.length - 1
+                  jobs.length > 0 && idx < jobs.length - 1
                     ? '1px solid black'
                     : 'none',
               }}
             >
               <div style={{ width: '100%', textAlign: 'center' }}>
-                <h4 key={`${keyStr}${idx}`}>{j.position}</h4>
+                <h4>{j.title}</h4>
                 <div
                   style={{
                     width: '100%',
@@ -77,9 +101,7 @@ export default function JoinEngEsp() {
                     See Less
                   </Button>
                 </div>
-                <div className={styles.details}>
-                  <div>{j.details}</div>
-                </div>
+                <div className={styles.details}>{j.description}</div>
                 <Button
                   className={styles.seeMore}
                   onClick={() =>
