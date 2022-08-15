@@ -9,7 +9,7 @@ import styles from './Vote.module.scss';
 export default function Pledge({ language }) {
   const thisCampaign = useContext(PledgesContext);
   const signerList = thisCampaign.signers ?? [];
-  const pledgeLength = signerList.length;
+  // const pledgeLength = signerList.length;
   const [isPledging, setIsPledging] = useState(false);
   const [pledged, setPledged] = useState(false);
   const [input, setInput] = useState({});
