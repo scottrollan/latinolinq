@@ -15,6 +15,19 @@ const ResourcesEsp = () => {
       <h1>Recursos</h1>
       <div className={styles.chunkArea}>
         <div className={styles.chunk}>
+          <h3>Viruela del Mono</h3>
+          <p>
+            Obtenga más información sobre la viruela del mono, cómo hacerse la
+            prueba, el tratamiento y la vacunación.
+          </p>
+          <a
+            className={styles.actionButton}
+            href="https://drive.google.com/file/d/1eWTNpbEJ43s6OTyzCF1-cglA5iB8YMBK/view?usp=sharing"
+          >
+            Aprende más sobre la viruela del mono
+          </a>
+        </div>
+        <div className={styles.chunk}>
           <h3>Trans Lifeline</h3>
           <p>
             ¡La línea directa de crisis y apoyo entre pares de Trans Lifeline
