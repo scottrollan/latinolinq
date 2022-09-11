@@ -9,7 +9,7 @@
   position: relative;
   align-items: center;
   @media (pointer: coarse) {
-    @media screen and (width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-medium) {
       font-size: larger;
     }
   }
@@ -34,6 +34,9 @@ a {
   max-width: var(--max-width-mobile);
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: $breakpoint-large) {
+    flex-direction: column;
+  }
 }
 
 .column1,
@@ -41,6 +44,9 @@ a {
   width: 50%;
   padding: 1em 2em;
   text-align: justify;
+  @media screen and (max-width: $breakpoint-large) {
+    width: 100%;
+  }
 }
 
 .poxPic {

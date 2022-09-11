@@ -116,7 +116,7 @@ export default function MonkeyPoxEsp() {
               una infección de transmisión sexual (ITS) en los últimos 90 días.
             </li>
           </ol>
-          <div>
+          <div style={{ textAlign: 'left' }}>
             Georgia - obtenga una cita para su vacunación aquí:{' '}
             <a
               href="https://gta-vras.powerappsportals.us/es-ES/"
@@ -126,7 +126,7 @@ export default function MonkeyPoxEsp() {
               https://gta-vras.powerappsportals.us/es-ES/
             </a>{' '}
           </div>
-          <div>
+          <div style={{ textAlign: 'left' }}>
             Otros lugares:{' '}
             <a
               href="https://mpoxvaxmap.org/"
