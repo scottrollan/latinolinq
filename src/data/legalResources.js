@@ -90,7 +90,7 @@ export const resources = [
   {
     org: 'Abogado Rohan',
     web: 'https://www.facebook.com/abogadorohan',
-    web2: 'https://www.rohan.law',
+    web2: 'https://rohanlawpc.com/',
     address: (
       <div>
         375 Northridge Road Suite 120
@@ -617,7 +617,7 @@ export const recursos = [
   {
     org: 'Abogado Rohan',
     web2: 'https://www.facebook.com/abogadorohan',
-    web: 'https://www.rohan.law',
+    web: 'https://rohanlawpc.com/',
     address: (
       <div>
         375 Northridge Road Suite 120 <br />

@@ -10,7 +10,7 @@ export default function MonkeyPoxEsp() {
       <h3>RECURSOS DE SALUD PARA PROTEGERSE CONTRA LA VIRUELA SÍMICA</h3>
       <div className={styles.twoColumns}>
         <div className={styles.column1}>
-          <h4 className={styles.red}>1. INFORMACIÓN EN GENERAL</h4>
+          <h4 className={styles.red}>INFORMACIÓN EN GENERAL</h4>
           <p>
             Se presenta como sarpullido en cualquier parte del cuerpo,
             comúnmente en el área genital o en el ano. Otros síntomas menos
