@@ -46,12 +46,6 @@ const NavBar = () => {
             >
               Servicios
             </Link>
-            {/* <Link
-              to="/CalendarEsp"
-              className={[`dropdown-item ${styles.toRight}`]}
-            > */}
-            {/* Calendario
-            </Link> */}
             <Link
               to="/NewsletterEsp"
               className={[`dropdown-item ${styles.toRight}`]}
@@ -120,12 +114,7 @@ const NavBar = () => {
             >
               Services
             </Link>
-            {/* <Link
-              to="/Calendar"
-              className={[`dropdown-item ${styles.toRight}`]}
-            >
-              Calendar
-            </Link> */}
+
             <Link
               to="/NewsletterEng"
               className={[`dropdown-item ${styles.toRight}`]}
@@ -156,16 +145,7 @@ const NavBar = () => {
             >
               Resources
             </Link>
-            {/* <Link to="/Vote" className={[`dropdown-item ${styles.toRight}`]}>
-              <span
-                style={{
-                  color: 'var(--linq-green)',
-                  textDecoration: 'underline',
-                }}
-              >
-                Voting Resources
-              </span>
-            </Link> */}
+
             <Link
               to="/LegalAssistanceEng"
               className={[`dropdown-item ${styles.toRight}`]}

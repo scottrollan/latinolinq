@@ -1,0 +1,49 @@
+@import '../../styles//custom-media.scss';
+@import '../../styles/custom-properties.scss';
+
+.monkeyPox {
+  padding-top: calc(var(--nav-height) + 2em);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  @media (pointer: coarse) {
+    @media screen and (width: $breakpoint-medium) {
+      font-size: larger;
+    }
+  }
+}
+h3 {
+  padding: 0 2em;
+}
+.red {
+  color: red;
+  text-align: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a {
+  word-wrap: break-word;
+}
+.twoColumns {
+  width: 90%;
+  max-width: var(--max-width-mobile);
+  display: flex;
+  flex-direction: row;
+}
+
+.column1,
+.column2 {
+  width: 50%;
+  padding: 1em 2em;
+  text-align: justify;
+}
+
+.poxPic {
+  width: 100%;
+  max-width: calc(var(--max-width-mobile) / 3);
+}

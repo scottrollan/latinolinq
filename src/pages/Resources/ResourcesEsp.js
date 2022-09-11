@@ -20,12 +20,12 @@ const ResourcesEsp = () => {
             Obtenga más información sobre la viruela del mono, cómo hacerse la
             prueba, el tratamiento y la vacunación.
           </p>
-          <a
+          <Link
+            to="/ResourcesEsp/MonkeyPoxEsp/"
             className={styles.actionButton}
-            href="https://drive.google.com/file/d/1eWTNpbEJ43s6OTyzCF1-cglA5iB8YMBK/view?usp=sharing"
           >
             Aprende más sobre la viruela del mono
-          </a>
+          </Link>
         </div>
         <div className={styles.chunk}>
           <h3>Trans Lifeline</h3>

@@ -21,6 +21,7 @@ import BoardEsp from './pages/Board/BoardEsp';
 import SupportEsp from './pages/Support/SupportEsp';
 import ContactEsp from './pages/Contact/ContactEsp';
 import ResourcesEsp from './pages/Resources/ResourcesEsp';
+import MonkeyPoxEsp from './pages/Resources/MonkeyPoxEsp';
 import VoteEsp from './pages/Vote/VoteEsp';
 import LegalAssistanceEsp from './pages/Legal/LegalAssistanceEsp';
 import Admin from './pages/Admin/Admin';
@@ -67,6 +68,11 @@ function App() {
             <Route path="/SupportEsp" exact component={SupportEsp}></Route>
             <Route path="/ContactEsp" exact component={ContactEsp}></Route>
             <Route path="/ResourcesEsp" exact component={ResourcesEsp}></Route>
+            <Route
+              path="/ResourcesEsp/MonkeyPoxEsp"
+              exact
+              component={MonkeyPoxEsp}
+            ></Route>
             <Route path="/Vota" exact component={VoteEsp}></Route>
             <Route
               path="/LegalAssistanceEsp"
