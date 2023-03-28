@@ -9,6 +9,7 @@ import ServicesEng from './pages/Services/ServicesEng';
 import NewsletterEng from './pages/Newsletter/NewsletterEng';
 import BoardEng from './pages/Board/BoardEng';
 import SupportEng from './pages/Support/SupportEng';
+import CommunityEventsEng from './pages/CommunityEvents/CommunityEventsEng';
 import ContactEng from './pages/Contact/ContactEng';
 import ResourcesEng from './pages/Resources/ResourcesEng';
 import VoteEng from './pages/Vote/VoteEng';
@@ -19,6 +20,7 @@ import ServicesEsp from './pages/Services/ServicesEsp';
 import NewsletterEsp from './pages/Newsletter/NewsletterEsp';
 import BoardEsp from './pages/Board/BoardEsp';
 import SupportEsp from './pages/Support/SupportEsp';
+import CommunityEventsEsp from './pages/CommunityEvents/CommunityEventsEsp';
 import ContactEsp from './pages/Contact/ContactEsp';
 import ResourcesEsp from './pages/Resources/ResourcesEsp';
 import MonkeyPoxEsp from './pages/Resources/MonkeyPoxEsp';
@@ -47,6 +49,11 @@ function App() {
             ></Route>
             <Route path="/BoardEng" exact component={BoardEng}></Route>
             <Route path="/SupportEng" exact component={SupportEng}></Route>
+            <Route
+              path="/CommunityEventsEng"
+              exact
+              component={CommunityEventsEng}
+            ></Route>
             <Route path="/ContactEng" exact component={ContactEng}></Route>
             <Route path="/ResourcesEng" exact component={ResourcesEng}></Route>
             <Route path="/Vote" exact component={VoteEng}></Route>
@@ -66,6 +73,11 @@ function App() {
             ></Route>
             <Route path="/BoardEsp" exact component={BoardEsp}></Route>
             <Route path="/SupportEsp" exact component={SupportEsp}></Route>
+            <Route
+              path="/CommunityEventsEsp"
+              exact
+              component={CommunityEventsEsp}
+            ></Route>
             <Route path="/ContactEsp" exact component={ContactEsp}></Route>
             <Route path="/ResourcesEsp" exact component={ResourcesEsp}></Route>
             <Route

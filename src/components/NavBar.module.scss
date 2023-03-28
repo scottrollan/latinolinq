@@ -16,6 +16,7 @@ button,
   margin-right: 1rem;
 }
 .toRight {
+  background-color: var(--white);
   text-align: right !important;
   @media (pointer: coarse) {
     @media screen and (max-width: $breakpoint-medium) {

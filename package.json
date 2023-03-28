@@ -24,7 +24,7 @@
     "react-scripts": "^3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --port 4100",
     "build": "CI= react-scripts build"
   },
   "eslintConfig": {

@@ -65,6 +65,12 @@ const NavBar = () => {
               Apóyanos
             </Link>
             <Link
+              to="/CommunityEventsEsp"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Eventos Comunitarios
+            </Link>
+            <Link
               to="/ContactEsp"
               className={[`dropdown-item ${styles.toRight}`]}
             >
@@ -134,11 +140,18 @@ const NavBar = () => {
               Support Us{' '}
             </Link>
             <Link
+              to="/CommunityEventsEng"
+              className={[`dropdown-item ${styles.toRight}`]}
+            >
+              Community Events
+            </Link>
+            <Link
               to="/ContactEng"
               className={[`dropdown-item ${styles.toRight}`]}
             >
               Contact
             </Link>
+
             <Link
               to="/ResourcesEng"
               className={[`dropdown-item ${styles.toRight}`]}
